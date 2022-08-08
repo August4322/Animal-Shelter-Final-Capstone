@@ -16,7 +16,7 @@ CREATE TABLE pets (
 	pet_name varchar(50) NOT NULL,
     animal_type varchar(50) NOT NULL,
 	color varchar(50) NOT NULL,
-	age  int,
+	age  decimal(3,1),
 	image_link varchar(250),
 	is_available boolean default(true),
 	spayed_neutered boolean default(true),
