@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-
+//import animalservice from '@/services/PetService.js'
 Vue.use(Vuex)
 
 /*
@@ -19,7 +19,8 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    pets: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +38,12 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    }
+    },
+    // GET_PETS(state, pets) {
+    //   animalservice.getListOfAllPets().then(
+    //     (response) => 
+    //   )
+    // }
+
   }
 })
