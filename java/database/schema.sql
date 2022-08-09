@@ -1,6 +1,7 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS pets;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -9,5 +10,21 @@ CREATE TABLE users (
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
+CREATE TABLE pets (
+	id SERIAL,
+	gender varchar(6),
+	pet_name varchar(50) NOT NULL,
+    animal_type varchar(50) NOT NULL,
+	color varchar(50) NOT NULL,
+	age  decimal(3,1),
+	image_link varchar(250),
+	is_available boolean default(true),
+	spayed_neutered boolean default(true),
+	tagline varchar(500),
+	CONSTRAINT PK_pets PRIMARY KEY (id)
+);
+
+
+
 
 COMMIT TRANSACTION;
