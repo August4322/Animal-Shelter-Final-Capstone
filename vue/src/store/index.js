@@ -39,11 +39,10 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    // GET_PETS(state, pets) {
-    //   animalservice.getListOfAllPets().then(
-    //     (response) => 
-    //   )
-    // }
+    ADD_PETS(state, list) {
+      state.pets = list;
+    }
+    
 
   }
 })

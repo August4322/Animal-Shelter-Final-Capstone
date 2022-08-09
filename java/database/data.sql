@@ -9,11 +9,11 @@ INSERT INTO pets (gender, pet_name, animal_type, color, age, image_link, tagline
                 ('female','Beethoven','cat', 'striped brown', 0.3, 'img/beethoven.jpg', 'I am so cute! I love to play and cuddle.'),
                 ('female', 'Chaz', 'dog', 'light brown', 3, 'img/chaz.jpg' , 'Am I close enough to the camera to make you want me? Zoom in'),
                 ('female', 'Fifi', 'dog', 'white and brown', 6, 'img/fifi.jpg', 'A loyal dog who just wants a human friend to love'),
-                ('male', 'Garfunkel', 'cat', 'caramel', 7, 'img/garfunkle.jpg', 'Come play with me for a purrfect time'),
+                ('male', 'Garfunkel', 'cat', 'caramel', 7, 'img/garfunkel.jpg', 'Come play with me for a purrfect time'),
                 ('female', 'Kutie', 'cat', 'cream', 2, 'img/kutie.jpg', 'Just give me a bowl of the best and I am yours for the rest of time'),
                 ('male', 'Sputnik', 'dog', 'black', 4, 'img/sputnik.jpg', 'A big strong Dog looking for a cute human to protect'),
                 ('female', 'Stinky', 'cat', 'midnight black', 3, 'img/stinky.jpg', 'I hate to bathe but I love to play!'),
                 ('male', 'Stumps', 'dog', 'tan', 1, 'img/stumps.jpg', 'The laziest but most loveable dog ever. Cuddle with me.'),
-                ('female', 'Zippers', 'bunny', 'grey with white face', 2, 'img/zippers.jpg', 'Nom Nom Nom I love to eat and look so cute.');
-
+                ('female', 'Zippers', 'bunny', 'grey with white face', 2, 'img/zippers.jpg', 'Nom Nom Nom I love to eat and look so cute.'),
+                ('male', 'Dingus', 'cat', 'black', 1, 'img/dingus.png', 'I scream with joy to play with toys...and I am super cute');
 COMMIT TRANSACTION;
