@@ -13,5 +13,9 @@ export default {
         return http.get('/pets');
     },
 
+    getPetDetailsById(id) {
+        return http.get(`pets/${id}`);
+    }
+
   
 }

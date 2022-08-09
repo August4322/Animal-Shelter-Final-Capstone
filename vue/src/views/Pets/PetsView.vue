@@ -6,7 +6,7 @@
 
 <script>
 
-import PetList from '../components/PetList.vue'
+import PetList from '../../components/Pets/PetList.vue'
 
 export default {
   components: { PetList },

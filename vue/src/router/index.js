@@ -5,7 +5,8 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import PetsView from '@/views/PetsView';
+import PetsView from '@/views/Pets/PetsView';
+import PetAttributes from '@/views/Pets/PetAttributes.vue';
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ const router = new Router({
       path: '/pets',
       name: 'pets-view',
       component: PetsView
+    },
+    {
+      path: '/pets/:id',
+      name: 'attributes',
+      component: PetAttributes
     }
   ]
 })
