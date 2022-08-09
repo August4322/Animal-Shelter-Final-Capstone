@@ -16,4 +16,11 @@ INSERT INTO pets (gender, pet_name, animal_type, color, age, image_link, tagline
                 ('male', 'Stumps', 'dog', 'tan', 1, 'img/stumps.jpg', 'The laziest but most loveable dog ever. Cuddle with me.'),
                 ('female', 'Zippers', 'bunny', 'grey with white face', 2, 'img/zippers.jpg', 'Nom Nom Nom I love to eat and look so cute.');
 
+INSERT INTO volunteers (username, password, role, email, phone, name)
+        VALUES ('Joseph123', 'finalcapstone', 'volunteer', 'joseph123@gmail.com', 5551111, 'Joseph Stephens'),
+                ('Abigal456', 'finalcapstone', 'volunteer', 'abigail456@gmail.com', 5552222, 'Abigail Newman'),
+                ('Adam789', 'finalcapstone', 'volunteer', 'adam789@gmail.com', 5553333, 'Adam Shaw'),
+                ('Ruina101112', 'finalcapstone', 'volunteer', 'ruina101112@gmail.com', 5554444, 'Ruina Kang')
+
+
 COMMIT TRANSACTION;

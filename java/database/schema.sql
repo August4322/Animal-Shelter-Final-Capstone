@@ -2,6 +2,7 @@ BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS pets;
+DROP TABLE IF EXISTS volunteers;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -22,6 +23,16 @@ CREATE TABLE pets (
 	spayed_neutered boolean default(true),
 	tagline varchar(500),
 	CONSTRAINT PK_pets PRIMARY KEY (id)
+);
+CREATE TABLE volunteers (
+    volunteer_id SERIAL,
+    username varchar(50) NOT NULL UNIQUE,
+    password varchar(200) NOT NULL,
+    role varchar(50) NOT NULL,
+    email varchar(100) NOT NULL,
+    phone int NOT NULL,
+    name varchar(100) NOT NULL,
+    CONSTRAINT PK_volunteer PRIMARY KEY (volunteer_id)
 );
 
 
