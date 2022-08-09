@@ -1,10 +1,12 @@
 <template>
-<div class="pet">
-    <img v-bind:src="pet.image" alt="picture of animal" class="petImage">
-    
-
+<div>
+<div v-for="pet in this.$store.state.pets" v-bind:key="pet.id" class="petCard">
+    <img v-bind:src="pet.image" alt="picture of animal" class="petImg">
+    <h2 class="petName">{{pet.name}}</h2>
+    <h3>{{pet.tagline}}</h3>
+     
  
-
+</div>
 </div>
 
 
@@ -13,11 +15,8 @@
 </template>
 
 <script>
-import petService from '@/services/PetService'
+
 export default {
-    create(){
-        this.load()
-    },
     name: 'pet-details',
     data() {
         return {
@@ -36,13 +35,13 @@ export default {
             }
         }
     },
-    load() {
-        petService.get("http://localhost:9000/pets").then(res => {this.pet = res.name})
-    }
+   
 
 }
 </script>
 
-<style>
-
+<style scoped>
+ .petImg {
+     width: 200px;
+ }
 </style>
