@@ -16,7 +16,15 @@ public interface VolunteerDao {
     int findIdByUsername(String username);
 
     int createVolunteer(Volunteer volunteer);
+
+    void updateVolunteer(Volunteer volunteer);
+
+    void deleteVolunteer(int volunteerId);
+
+
 }
+
+
 
 
 

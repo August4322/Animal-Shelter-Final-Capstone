@@ -8,6 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,16 +79,37 @@ public class JdbcVolunteerDao implements VolunteerDao {
     }
 
     @Override
-    public int createVolunteer(Volunteer volunteer){
+    public int createVolunteer(Volunteer volunteer) {
 
         String sql = "INSERT INTO volunteers(username, password, role, email, phone, name) " +
                 "VALUES(?,?,?,?,?,?) RETURNING volunteer_id;";
         int newVolunteerId = jdbcTemplate.queryForObject(sql, Integer.class, volunteer.getUsername(), volunteer.getPassword(),
-        volunteer.getRole(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName());
+                volunteer.getRole(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName());
 
         return newVolunteerId;
-
     }
+
+    @Override
+    public void updateVolunteer(Volunteer volunteer) {
+
+        String sql = "UPDATE volunteers " + "SET username = ?, password = ?, role = ?, email = ?, phone = ?, name = ? ;";
+        jdbcTemplate.update(sql, volunteer.getUsername(), volunteer.getPassword(), volunteer.getRole(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName());
+    }
+
+        @Override
+        public void deleteVolunteer(int id){
+        String sql = "DELETE FROM volunteers " +
+                     "WHERE volunteer_id = ?;";
+
+            jdbcTemplate.update(sql, id);
+
+
+        }
+
+
+
+
+
 
     private Volunteer mapRowToVolunteer(SqlRowSet rsVol){
         Volunteer volunteer = new Volunteer();
