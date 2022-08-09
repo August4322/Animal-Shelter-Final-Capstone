@@ -15,9 +15,7 @@ export default {
 </script>
 
 <style scoped>
-    div {
-        background: red;
-    }
+
 
 </style>>
 
