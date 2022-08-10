@@ -13,4 +13,8 @@ export default {
 
 <style scoped>
 
+
+#container{
+    background-color: #D9F1D9;
+}
 </style>

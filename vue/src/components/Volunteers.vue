@@ -1,6 +1,8 @@
 <template>
-  <div>
-      <h1>Do you want to volunteer ?</h1>
+  <div id="container">
+      <h1>
+          Meet Our Volunteers!
+      </h1>
   </div>
 </template>
 
@@ -27,6 +29,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+#container{
+    background-color: #D9F1D9;
+}
+h1 {
+    background-color: #D9F1E5;
+}
 </style>
