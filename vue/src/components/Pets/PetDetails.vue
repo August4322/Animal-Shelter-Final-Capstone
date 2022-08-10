@@ -4,7 +4,7 @@
 <div class="petCard">
     
      <div id="frame">
-    <img v-bind:src="pet.image" alt="Are looks all that matter to you?" class="petImg"/>
+    <img v-bind:src="pet.image" alt="Are looks all that matter to you?"/>
      </div>
      <div class="petDetails" >
     <h2 class="petName">{{pet.name}}</h2>
