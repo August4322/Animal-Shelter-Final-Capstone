@@ -27,7 +27,7 @@ CREATE TABLE pets (
 CREATE TABLE volunteers (
     volunteer_id SERIAL,
     username varchar(50) NOT NULL UNIQUE,
-    password varchar(200) NOT NULL,
+    password varchar(200),
     role varchar(50) NOT NULL,
     email varchar(100) NOT NULL,
     phone int NOT NULL,

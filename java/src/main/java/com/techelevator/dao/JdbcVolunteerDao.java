@@ -90,10 +90,10 @@ public class JdbcVolunteerDao implements VolunteerDao {
     }
 
     @Override
-    public void updateVolunteer(Volunteer volunteer) {
+    public void updateVolunteer(Volunteer volunteer)  {
 
-        String sql = "UPDATE volunteers " + "SET username = ?, password = ?, role = ?, email = ?, phone = ?, name = ? ;";
-        jdbcTemplate.update(sql, volunteer.getUsername(), volunteer.getPassword(), volunteer.getRole(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName());
+        String sql = "UPDATE volunteers " + "SET username = ?, password = ?, role = ?, email = ?, phone = ?, name = ?  WHERE volunteer_id = ? ;";
+        jdbcTemplate.update(sql, volunteer.getUsername(), volunteer.getPassword(), volunteer.getRole(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName(), volunteer.getId());
     }
 
         @Override
@@ -113,7 +113,7 @@ public class JdbcVolunteerDao implements VolunteerDao {
 
     private Volunteer mapRowToVolunteer(SqlRowSet rsVol){
         Volunteer volunteer = new Volunteer();
-        volunteer.setId(rsVol.getInt("id"));
+        volunteer.setId(rsVol.getInt("volunteer_id"));
         volunteer.setUsername(rsVol.getString("username"));
         volunteer.setPassword(rsVol.getString("password"));
         volunteer.setRole(rsVol.getString("role"));
