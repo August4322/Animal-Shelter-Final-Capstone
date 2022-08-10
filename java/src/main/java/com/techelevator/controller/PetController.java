@@ -2,10 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.PetDao;
 import com.techelevator.model.Pet;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,11 @@ public class PetController {
     @RequestMapping(value="/pets", method = RequestMethod.GET)
     public List<Pet> showAll() {
         return dao.listAllPets();
+    }
+
+    @RequestMapping(path="/pets/{id}", method = RequestMethod.GET)
+    public Pet getPetById(@PathVariable int id) {
+        return dao.getPetById(id);
     }
 
 

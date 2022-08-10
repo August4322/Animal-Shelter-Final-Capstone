@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Pet;
+import com.techelevator.model.PetNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,22 @@ public class JdbcPetDao implements PetDao {
         }
 
         return allPets;
+    }
+
+    @Override
+    public Pet getPetById(int id) {
+        Pet pet = null;
+        //sql
+        String sql =    "SELECT * " +
+                        "FROM pets " +
+                        "Where id = ?;";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, id);
+        if (result.next()) {
+            pet = mapRowToPet(result);
+        } else {
+            throw new PetNotFoundException();
+        }
+        return pet;
     }
 
     private Pet mapRowToPet(SqlRowSet rs) {
