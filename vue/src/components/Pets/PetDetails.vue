@@ -1,10 +1,10 @@
 <template>
 <div>
     <div id="container">
-<div v-for="pet in this.$store.state.pets" v-bind:key="pet.id" class="petCard">
+<div class="petCard">
     
      <div id="frame">
-    <img v-bind:src="pet.image" alt="picture of animal" class="petImg">
+    <img v-bind:src="pet.image" alt="Are looks all that matter to you?" class="petImg"/>
      </div>
      <div class="petDetails" >
     <h2 class="petName">{{pet.name}}</h2>
