@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <pet-details/>
-  </div>
+  <main>
+    <div>
+    <pet-details id="featured"></pet-details>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -14,7 +16,23 @@ export default {
 </script>
 
 <style scoped>
-    div {
-        background: chocolate;
+  main{
+        height: 100vh;
+        background-color: #d9f1d9;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+  }
+
+  #featured {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 800px) {
+    main {
+      flex-direction: column;
     }
+    
+  }
 </style>

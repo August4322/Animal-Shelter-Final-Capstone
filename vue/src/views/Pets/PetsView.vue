@@ -14,8 +14,10 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+div {
+background: #d9f1d9;
+}
 
 </style>>
 
