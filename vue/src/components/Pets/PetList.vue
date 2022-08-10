@@ -52,7 +52,7 @@ export default {
   border: 2px solid black;
   border-radius: 10px;
   width:  400px;
-  height: auto;
+  height: 360px;
   margin: 20px;
   background-color: #d9f1d9;
 }
