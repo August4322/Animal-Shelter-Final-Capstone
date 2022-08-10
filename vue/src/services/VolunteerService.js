@@ -31,7 +31,7 @@ export default {
         if(volunteer.id) {
             return this.updateVolunteer(volunteer);
         } else {
-            return this.saveVolunteer(volunteer);
+            return this.createVolunteer(volunteer);
         }
     }
 }

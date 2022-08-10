@@ -28,7 +28,7 @@ CREATE TABLE volunteers (
     volunteer_id SERIAL,
     username varchar(50) NOT NULL UNIQUE,
     password varchar(200),
-    role varchar(50) NOT NULL,
+    role varchar(50),
     email varchar(100) NOT NULL,
     phone int NOT NULL,
     name varchar(100) NOT NULL,

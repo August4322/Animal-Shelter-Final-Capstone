@@ -30,10 +30,5 @@ export default {
 </script>
 
 <style scoped>
-#container{
-    background-color: #D9F1D9;
-}
-h1 {
-    background-color: #D9F1E5;
-}
+
 </style>
