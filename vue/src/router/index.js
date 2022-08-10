@@ -7,7 +7,8 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import PetsView from '@/views/Pets/PetsView';
 import PetAttributes from '@/views/Pets/PetAttributes.vue';
-import Volunteers from '@/views/VolunteersView.vue'
+import Volunteers from '@/views/VolunteersView.vue';
+import AddVolunteers from '@/views/AddVolunteersView.vue';
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ const router = new Router({
       path: '/volunteer',
       name: 'volunteers',
       component: Volunteers
+    },
+    {
+      path: '/volunteer/apply',
+      name: 'addVolunteer',
+      component: AddVolunteers
     }
   ]
 })

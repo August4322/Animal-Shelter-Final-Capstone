@@ -1,7 +1,6 @@
 <template>
   <div>
-      <h1>Test Typing
-      </h1>
+      <h1>Do you want to volunteer ?</h1>
   </div>
 </template>
 
