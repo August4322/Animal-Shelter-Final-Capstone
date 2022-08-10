@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class VolunteerController {
 
     private VolunteerDao daoV;
@@ -20,6 +21,7 @@ public class VolunteerController {
     public List<Volunteer> findAll() {
         return daoV.findAll();
     }
+
     @RequestMapping(value = "/volunteer/{id}", method = RequestMethod.GET)
     public Volunteer getVolunteer(@PathVariable int id) { return daoV.getVolunteerById(id);};
 
