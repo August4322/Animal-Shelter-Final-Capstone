@@ -7,13 +7,8 @@
         v-bind:key="pet.id"
       >
         <div v-if="pet.available">
-          <div>
-            <img
-              id="frame"
-              v-bind:src="pet.image"
-              alt="Adopt this Pet Today!"
-              v-on:click="goToPet(pet.id)"
-            />
+          <div v-on:click="goToPet(pet.id)">
+            <img id="frame" v-bind:src="pet.image" alt="Adopt this Pet Today!"/>
           </div>
           <h2 class="name">{{ pet.name }}</h2>
           <p class="tagline">{{ pet.tagline }}</p>
