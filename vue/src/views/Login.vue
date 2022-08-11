@@ -1,5 +1,6 @@
 <template>
   <div id="login" class="text-center">
+    <div class="styleform">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
@@ -12,8 +13,11 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="sr-only">Username</label>
-      <input
+      <label for="username" class="sr-only" >Username</label>
+      <el-input
+ 
+        size="medium"
+        prefix-icon="el-icon-user"
         type="text"
         id="username"
         class="form-control"
@@ -23,7 +27,11 @@
         autofocus
       />
       <label for="password" class="sr-only">Password</label>
-      <input
+      <el-input
+      size="medium"
+      prefix-icon="el-icon-lock"
+      
+      show-password
         type="password"
         id="password"
         class="form-control"
@@ -31,9 +39,12 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <div class="buttonstyle">
+      <router-link :to="{ name: 'register' }" style="background-color: transparent" >Need an account?</router-link>
+      <button class="sizebutton" type="submit" style="background-color: transparent">Sign in</button>
+      </div>
     </form>
+    </div>
   </div>
 </template>
 
@@ -74,3 +85,43 @@ export default {
   }
 };
 </script>
+<style scoped>
+.styleform {
+  margin: 200px auto;
+  background-image: linear-gradient(to bottom right, #FC4668, #3F5EFB);
+  width: 350px;
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+}
+.form-signin {
+   background-image: linear-gradient(to bottom right, #FC4668, #3F5EFB);
+
+
+}
+/* .username {
+  margin: 10px 0;
+
+}
+.password {
+  margin: 10px 0;
+
+} */
+.buttonstyle {
+  margin: 10px 0;
+  text-align: right;
+  background-color: transparent;
+}
+.h3 {
+  background-color: transparent;
+}
+.sr-only {
+  background-color: transparent;
+}
+.sizebutton{
+  width: 100px;
+  height: 30px;
+}
+
+
+</style>
