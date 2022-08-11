@@ -9,4 +9,8 @@ public interface PetDao {
     List<Pet> listAllPets();
 
     Pet getPetById(int id);
+
+    int createPet(Pet pet);
+
+
 }
