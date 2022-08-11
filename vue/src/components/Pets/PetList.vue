@@ -4,12 +4,12 @@
       <div
         class="petCard"
         v-for="pet in this.$store.state.pets"
-        v-bind:key="pet.id"
+        v-bind:key="pet.id" v-on:click="goToPet(pet.id)"
       >
         <div v-if="pet.available">
-          <div v-on:click="goToPet(pet.id)">
+        
             <img id="frame" v-bind:src="pet.image" alt="Adopt this Pet Today!"/>
-          </div>
+         
           <h2 class="name">{{ pet.name }}</h2>
           <p class="tagline">{{ pet.tagline }}</p>
         </div>
