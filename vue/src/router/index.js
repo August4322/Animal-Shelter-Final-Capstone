@@ -25,22 +25,47 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+  
+
+
+
+
+
+
+
+
+
+
+
     {
       path: '/',
       name: 'home',
       component: Home,
+      redirect:'/about',//not sure
+      
       meta: {
         requiresAuth: true
       }
     },
-    {
-      path: "/login",
+
+     {
+       path: "/login",
       name: "login",
       component: Login,
-      meta: {
+      children: [    //not sure
+      
+   
+       {
+       path: 'home',
+       name: 'Home',
+       component: () => import('../views/Home.vue'),
+       }
+   
+       ],
+       meta: {
         requiresAuth: false
       }
-    },
+     },
     {
       path: "/logout",
       name: "logout",
@@ -76,7 +101,13 @@ const router = new Router({
       path: '/volunteer/apply',
       name: 'addVolunteer',
       component: AddVolunteers
-    }
+    },
+    {
+      path: '/about',
+      name: 'About',
+    
+      component: () => import( '../views/About.vue')
+    },
   ]
 })
 
