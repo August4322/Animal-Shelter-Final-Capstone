@@ -15,14 +15,6 @@ export default {
 
     getPetDetailsById(id) {
         return http.get(`pets/${id}`);
-    }
+    },
 
-    saveVolunteer(volunteer) {
-        if(volunteer.id) {
-            return this.updateVolunteer(volunteer);
-        } else {
-            return this.createVolunteer(volunteer);
-        }
-    }
-  
 }
