@@ -17,17 +17,17 @@ public class VolunteerController {
         this.daoV = daoV;
     }
 
-    @RequestMapping(value = "/volunteer", method = RequestMethod.GET)
+    @RequestMapping(value = "/volunteers", method = RequestMethod.GET)
     public List<Volunteer> findAll() {
         return daoV.findAll();
     }
 
-    @RequestMapping(value = "/volunteer/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/volunteers/{id}", method = RequestMethod.GET)
     public Volunteer getVolunteerById(@PathVariable int id) { return daoV.getVolunteerById(id);};
 
     //@PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value="/volunteer", method = RequestMethod.POST)
+    @RequestMapping(value="/volunteers", method = RequestMethod.POST)
     public int createVolunteer(@RequestBody Volunteer volunteer) {
         //User user= userDao.update()
         //(update user set role=ROLE_ADMIN where username =?)
@@ -35,14 +35,14 @@ public class VolunteerController {
     }
 
     //@PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(value="/volunteer", method = RequestMethod.PUT)
+    @RequestMapping(value="/volunteers", method = RequestMethod.PUT)
     public void updateVolunteer(@RequestBody Volunteer volunteer) {
         daoV.updateVolunteer(volunteer);
     };
 
     //@PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(value = "/volunteer/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/volunteers/{id}", method = RequestMethod.DELETE)
     public void deleteVolunteer(@PathVariable int id) {daoV.deleteVolunteer(id);};
     }
 

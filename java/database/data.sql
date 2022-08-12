@@ -20,11 +20,11 @@ INSERT INTO pets (gender, pet_name, animal_type, color, age, image_link, tagline
                 ('Male', 'Dingus', 'cat', 'black', 1, '/img/dingus.png', 'I scream with joy to play with toys...and I am super cute!');
 
 
-INSERT INTO volunteers (name, email, phone, application_status_id)
-        VALUES ('Joseph Stephens', 'joseph123@gmail.com', 5551111, 2),
-                ('Abigail Newman', 'abigail456@gmail.com', 5552222, 2),
-                ('Adam Shaw', 'adam789@gmail.com', 5553333, 2),
-				('Ruina Kang', 'ruina101@gmail.com', 5554444, 2);
+INSERT INTO volunteers (user_id, name, email, phone, application_status_id)
+        VALUES (3, 'Joseph Stephens', 'joseph123@gmail.com', 5551111, 2),
+                (4, 'Abigail Newman', 'abigail456@gmail.com', 5552222, 2),
+                (5, 'Adam Shaw', 'adam789@gmail.com', 5553333, 2),
+				(6, 'Ruina Kang', 'ruina101@gmail.com', 5554444, 2);
 
 
 COMMIT TRANSACTION;

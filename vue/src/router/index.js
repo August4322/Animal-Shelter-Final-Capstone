@@ -82,7 +82,7 @@ const router = new Router({
       component: PetAttributes
     },
     {
-      path: '/volunteer',
+      path: '/volunteers',
       name: 'volunteers',
       component: Volunteers
     },

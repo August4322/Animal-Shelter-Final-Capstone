@@ -3,12 +3,12 @@
     <h1>Meet Our Volunteers!</h1>
     <div
       class="volunteer"
-      v-for="volunteer in this.$store.state.volunteer"
+      v-for="volunteer in this.$store.state.volunteers"
       v-bind:key="volunteer.id"
     >
       <h2 class="name">{{ volunteer.name }}</h2>
-      <p class="email">{{ volunteer.email }}</p>
-      <p class="phone">{{ volunteer.phone }}</p>
+      <p class="email">Email: {{ volunteer.email }}</p>
+      <p class="phone">Phone Number: {{ volunteer.phone }}</p>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
   created() {
     volunteerService.findAllVolunteers().then((response) => {
       let list = response.data;
-      this.$store.commit("ADD_VOLUNTEER", list);
+      this.$store.commit("ADD_VOLUNTEERS", list);
     });
   },
 };

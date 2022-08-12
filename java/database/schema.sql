@@ -51,8 +51,8 @@ CREATE TABLE volunteers (
     phone int NOT NULL,
     application_status_id int NOT NULL DEFAULT(1),
     CONSTRAINT PK_volunteer PRIMARY KEY (volunteer_id),
-	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (user_id) REFERENCES users (user_id),
-	CONSTRAINT FK_volunteer_application_status FOREIGN KEY (application_status_id) REFERENCES application_status (application_status_id)
+	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT FK_volunteer_application_status FOREIGN KEY (application_status_id) REFERENCES application_status(application_status_id)
 );
 
 INSERT INTO application_status (application_status_desc) VALUES ('Pending');
