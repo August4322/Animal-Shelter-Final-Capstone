@@ -1,10 +1,10 @@
 <template>
   <div>
     <div v-if="isLoading">
-        <img src='/img/yak_loader.gif'/>
+        <img id="loader" src='@/assets/animal_loader.gif'/>
     </div>
     <!----------------------------------------------------------------->
-      <div class="container">
+      <div class="container" v-else>
         <h2 class="name">{{ pet.name }}</h2>
         
           <img class="pic" v-bind:src="pet.image" alt="Are looks all that matter to you?"/>
@@ -53,12 +53,16 @@ export default {
     };
   },
   created() {
-    petService.getPetDetailsById(this.$route.params.id).then((response) => {
-      this.pet = response.data;
-      this.isLoading = false;
-    });
-  },
-};
+    petService.getPetDetailsById(this.$route.params.id).then(
+      (response) => {
+           setTimeout( () => {
+               this.pet = response.data;
+               this.isLoading = false;
+            }, 2000);
+  })
+  }
+}
+
 </script>
 
 <style scoped>
@@ -89,6 +93,10 @@ export default {
     border: 4px #f6f6de;
 }
 
+#loader {
+    width: 300px;
+    height: auto; 
+}
 h3{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font:italic;

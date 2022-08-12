@@ -39,7 +39,7 @@ public class PetController {
 
     //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    @RequestMapping(path = "/edit-{id}",method = RequestMethod.PUT)
+    @RequestMapping(path = "/edit/{id}",method = RequestMethod.PUT)
     public void updateExistingPet(@PathVariable int id,@Valid @RequestBody Pet pet) {
         dao.updatePet(id,pet);
     }
