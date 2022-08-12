@@ -6,18 +6,37 @@
           <label>Gender</label>
           <input type="text" v-model="pet.gender" />
         </div>
-        <div id="pet-name">
-          <label>Pet Name</label>
-          <input type="text" v-model="volunteer.petName" />
+        <div id="name">
+          <label>Name</label>
+          <input type="text" v-model="pet.name" />
         </div>
-        <div id="email">
-          <label>Email</label>
-          <input type="text" v-model="volunteer.email" />
+        <div id="type">
+          <label>Animal Type</label>
+          <input type="text" v-model="pet.type" />
         </div>
-        <div id="phone">
-          <label>Phone Number</label>
-          <input type="long" v-model="volunteer.phone" />
+        <div id="color">
+          <label>Color</label>
+          <input type="long" v-model="pet.color" />
         </div>
+        <div id="age">
+            <label>Age in years</label>
+            <input type="decimal" v-model="pet.age"/>
+        </div>
+        <div id="image">
+            <label>Image URL</label>
+            <input type ="url" v-model="pet.image"/>
+        </div>
+        <div id="tagline">
+            <label>About Me</label>
+            <input type="text" v-model="pet.tagline"/>
+        </div>
+        <div id="available">
+            <label>Available</label>
+            <input type="checkbox" v-model="pet.available"/>
+        </div>
+        <div id="fixed">
+            <label>Is Fixed</label>
+            <input type="checkbox" v-model="pet.fixed"/>
         <button type="button" v-on:click="cancel()">Cancel</button> &nbsp;
         <button type="submit" v-on:click="submitForm()">
           Submit Application
