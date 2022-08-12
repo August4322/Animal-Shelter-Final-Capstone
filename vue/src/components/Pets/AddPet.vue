@@ -37,6 +37,7 @@
         <div id="fixed">
             <label>Is Fixed</label>
             <input type="checkbox" v-model="pet.fixed"/>
+        </div>
         <button type="button" v-on:click="cancel()">Cancel</button> &nbsp;
         <button type="submit" v-on:click="submitForm()">
           Submit Application

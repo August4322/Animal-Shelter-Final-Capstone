@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Home from '../views/Home.vue'
+//import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
@@ -73,16 +73,6 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    { 
-      path: '/pets',
-      name: 'pets-view',
-      component: PetsView
-    },
-    {
-      path: '/pets/:id',
-      name: 'attributes',
-      component: PetAttributes
-    },
     {
       path: '/volunteers',
       name: 'volunteers',
@@ -93,8 +83,8 @@ const router = new Router({
       name: 'addVolunteer',
       component: AddVolunteers
     },
-    {
-      path: '/pets/edit/:id',
+    //pet router paths-------------------
+    { path: '/pets/edit/:id',
       name: 'edit',
       component: SavePetView
 
@@ -104,6 +94,17 @@ const router = new Router({
       name: 'create',
       component: SavePetView
     },
+    { 
+      path: '/pets',
+      name: 'pets-view',
+      component: PetsView
+    },
+    {
+      path: '/pets/:id',
+      name: 'attributes',
+      component: PetAttributes
+    },
+    //-------
     {
       path: '/pageForVolunteer',
       name: 'pageForVolunteer',
