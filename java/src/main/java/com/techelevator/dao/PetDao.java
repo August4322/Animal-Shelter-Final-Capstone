@@ -12,5 +12,9 @@ public interface PetDao {
 
     int createPet(Pet pet);
 
+    boolean updatePet(int id, Pet pet);
+
+
+
 
 }
