@@ -9,6 +9,8 @@ import PetsView from '@/views/Pets/PetsView';
 import PetAttributes from '@/views/Pets/PetAttributes.vue';
 import Volunteers from '@/views/VolunteersView.vue';
 import AddVolunteers from '@/views/AddVolunteersView.vue';
+import SavePetView from '@/views/Pets/SavePetView.vue';
+
 
 Vue.use(Router)
 
@@ -90,6 +92,17 @@ const router = new Router({
       path: '/volunteer/apply',
       name: 'addVolunteer',
       component: AddVolunteers
+    },
+    {
+      path: '/pets/edit/:id',
+      name: 'edit',
+      component: SavePetView
+
+    },
+    {
+      path: '/pets/create',
+      name: 'create',
+      component: SavePetView
     },
     {
       path: '/pageForVolunteer',
