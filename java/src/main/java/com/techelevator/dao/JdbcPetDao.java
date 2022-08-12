@@ -61,6 +61,16 @@ public class JdbcPetDao implements PetDao {
         return newId;
     }
 
+    @Override
+    public boolean updatePet(int id, Pet pet) {
+        String sql =    "UPDATE pets " +
+                        "SET gender = ?, pet_name = ?, animal_type = ?, color = ?, " +
+                        "age = ?, image_link = ?, is_available = ?, spayed_neutered = ?, tagline = ? " +
+                        "WHERE id = ?";
+        return jdbcTemplate.update(sql, pet.getGender(), pet.getName(), pet.getType(), pet.getColor(), pet.getAge(),
+                            pet.getImage(), pet.isAvailable(), pet.isFixed(), pet.getTagline(), id) == 1;
+    }
+
 
     private Pet mapRowToPet(SqlRowSet rs) {
         Pet pet = new Pet();

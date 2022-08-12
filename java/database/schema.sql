@@ -1,10 +1,29 @@
 BEGIN TRANSACTION;
 
+
+DROP TABLE IF EXISTS volunteers;
+DROP TABLE IF EXISTS application_status;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS pets;
-DROP TABLE IF EXISTS volunteers;
+
+CREATE TABLE application_status (
+	application_status_id serial NOT NULL,
+	application_status_desc varchar(10) NOT NULL,
+	CONSTRAINT PK_application_status PRIMARY KEY (application_status_id)
+);
+
+/*
+	CREATE SEQUENCE seq_user_id
+  	INCREMENT BY 1
+  	START WITH 1001
+  	NO MAXVALUE;
+*/
+
 
 CREATE TABLE users (
+	/*Possibly change user_id from serial to:
+	user_id int NOT NULL DEFAULT nextval('seq_user_id'),
+	to allow the two tables to match up*/
 	user_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
@@ -26,16 +45,19 @@ CREATE TABLE pets (
 );
 CREATE TABLE volunteers (
     volunteer_id SERIAL,
-    username varchar(50) NOT NULL UNIQUE,
-    password varchar(200),
-    role varchar(50),
+	user_id int,
+	name varchar(100) NOT NULL,
     email varchar(100) NOT NULL,
     phone int NOT NULL,
-    name varchar(100) NOT NULL,
-    CONSTRAINT PK_volunteer PRIMARY KEY (volunteer_id)
+    application_status_id int NOT NULL DEFAULT(1),
+    CONSTRAINT PK_volunteer PRIMARY KEY (volunteer_id),
+	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT FK_volunteer_application_status FOREIGN KEY (application_status_id) REFERENCES application_status(application_status_id)
 );
 
-
+INSERT INTO application_status (application_status_desc) VALUES ('Pending');
+INSERT INTO application_status (application_status_desc) VALUES ('Approved');
+INSERT INTO application_status (application_status_desc) VALUES ('Rejected');
 
 
 COMMIT TRANSACTION;

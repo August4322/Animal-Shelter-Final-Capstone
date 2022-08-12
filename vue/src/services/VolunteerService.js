@@ -7,24 +7,24 @@ const http = axios.create({
 export default {
 
     findAllVolunteers() {
-        return http.get(`/volunteer`);
+        return http.get(`/volunteers`);
     },
 
     findVolunteerById(id) {
-        return http.get(`/volunteer/${id}`);
+        return http.get(`/volunteers/${id}`);
     },
 
     createVolunteer(volunteer) {
-        const url = "/volunteer";
+        const url = "/volunteers";
         return http.post(url, volunteer);
     },
 
     updateVolunteer() {
-        return http.put(`/volunteer`);
+        return http.put(`/volunteers`);
     },
 
     deleteVolunteer(id) {
-        return http.delete(`/volunteer/${id}`);
+        return http.delete(`/volunteers/${id}`);
     },
 
     saveVolunteer(volunteer) {

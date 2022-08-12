@@ -2,6 +2,12 @@ BEGIN TRANSACTION;
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) 
+		VALUES ('Joseph123','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER'),
+				('Abigal456','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER'),
+				('Adam789','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER'),
+				('Ruina101','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+
 
 INSERT INTO pets (gender, pet_name, animal_type, color, age, image_link, tagline)
         VALUES  ('Male', 'Alfred', 'cat', 'brown', 2, '/img/alfred.jpg', 'I am in need of a human. Pick me!'),
@@ -14,11 +20,11 @@ INSERT INTO pets (gender, pet_name, animal_type, color, age, image_link, tagline
                 ('Male', 'Dingus', 'cat', 'black', 1, '/img/dingus.png', 'I scream with joy to play with toys...and I am super cute!');
 
 
-INSERT INTO volunteers (username, password, role, email, phone, name)
-        VALUES ('Joseph123', 'finalcapstone', 'volunteer', 'joseph123@gmail.com', 5551111, 'Joseph Stephens'),
-                ('Abigal456', 'finalcapstone', 'volunteer', 'abigail456@gmail.com', 5552222, 'Abigail Newman'),
-                ('Adam789', 'finalcapstone', 'volunteer', 'adam789@gmail.com', 5553333, 'Adam Shaw'),
-                ('Ruina101112', 'finalcapstone', 'volunteer', 'ruina101112@gmail.com', 5554444, 'Ruina Kang');
+INSERT INTO volunteers (user_id, name, email, phone, application_status_id)
+        VALUES (3, 'Joseph Stephens', 'joseph123@gmail.com', 5551111, 2),
+                (4, 'Abigail Newman', 'abigail456@gmail.com', 5552222, 2),
+                (5, 'Adam Shaw', 'adam789@gmail.com', 5553333, 2),
+				(6, 'Ruina Kang', 'ruina101@gmail.com', 5554444, 2);
 
 
 COMMIT TRANSACTION;

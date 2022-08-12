@@ -6,21 +6,19 @@ import java.util.List;
 
 public interface VolunteerDao {
 
-
     List<Volunteer> findAll();
 
     Volunteer getVolunteerById(int volunteerId);
 
-    Volunteer findByUsername(String username);
+    Volunteer findByName(String name);
 
-    int findIdByUsername(String username);
+    int findIdByName(String name);
 
     int createVolunteer(Volunteer volunteer);
 
     void updateVolunteer(Volunteer volunteer);
 
     void deleteVolunteer(int volunteerId);
-
 
 }
 

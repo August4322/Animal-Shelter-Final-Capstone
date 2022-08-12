@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
+// import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
@@ -25,43 +25,32 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-  
-
-
-
-
-
-
-
-
-
-
-
     {
       path: '/',
-      name: 'home',
-      component: Home,
-      redirect:'/about',//not sure
+      name: 'about',
+      component: () => import('../views/About.vue'),
       
-      meta: {
-        requiresAuth: true
-      }
+      
+      // meta: {
+      //    requiresAuth: true
+      // }
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: () => import('../views/Home.vue'),
+      
+      
+       meta: {
+          requiresAuth: true
+       }
     },
 
      {
        path: "/login",
       name: "login",
       component: Login,
-      children: [    //not sure
-      
-   
-       {
-       path: 'home',
-       name: 'Home',
-       component: () => import('../views/Home.vue'),
-       }
-   
-       ],
+     
        meta: {
         requiresAuth: false
       }
@@ -93,7 +82,7 @@ const router = new Router({
       component: PetAttributes
     },
     {
-      path: '/volunteer',
+      path: '/volunteers',
       name: 'volunteers',
       component: Volunteers
     },
@@ -103,11 +92,12 @@ const router = new Router({
       component: AddVolunteers
     },
     {
-      path: '/about',
-      name: 'About',
-    
-      component: () => import( '../views/About.vue')
+      path: '/pageForVolunteer',
+      name: 'pageForVolunteer',
+      component: () => import('../views/pageForVolunteer.vue'),
+     
     },
+   
   ]
 })
 

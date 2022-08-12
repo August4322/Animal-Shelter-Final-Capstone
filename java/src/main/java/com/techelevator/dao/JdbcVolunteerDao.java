@@ -1,6 +1,5 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.User;
 import com.techelevator.model.UserNotFoundException;
 import com.techelevator.model.Volunteer;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -8,17 +7,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class JdbcVolunteerDao implements VolunteerDao {
-
-
 
 
     private final JdbcTemplate jdbcTemplate;
@@ -28,14 +22,14 @@ public class JdbcVolunteerDao implements VolunteerDao {
     }
 
     @Override
-    public int findIdByUsername(String username) {
-        if (username == null) throw new IllegalArgumentException("Username cannot be null");
+    public int findIdByName(String name) {
+        if (name == null) throw new IllegalArgumentException("Name cannot be null");
 
         int volunteerId;
         try {
-            volunteerId = jdbcTemplate.queryForObject("select volunteer_id from volunteers where username = ?", int.class, username);
+            volunteerId = jdbcTemplate.queryForObject("SELECT volunteer_id from volunteers where name = ?", int.class, name);
         } catch (EmptyResultDataAccessException e) {
-            throw new UsernameNotFoundException("Volunteer" + username + " was not found.");
+            throw new UsernameNotFoundException("Volunteer" + name + " was not found.");
         }
 
         return volunteerId;
@@ -43,7 +37,9 @@ public class JdbcVolunteerDao implements VolunteerDao {
 
     @Override
     public Volunteer getVolunteerById(int VolunteerId) {
-        String sql = "SELECT * FROM volunteers WHERE volunteer_id = ?";
+        String sql = "SELECT * " +
+                "FROM volunteers " +
+                "WHERE volunteer_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, VolunteerId);
         if (results.next()) {
             return mapRowToVolunteer(results);
@@ -55,7 +51,8 @@ public class JdbcVolunteerDao implements VolunteerDao {
     @Override
     public List<Volunteer> findAll() {
         List<Volunteer> volunteers = new ArrayList<>();
-        String sql = "select * from volunteers";
+        String sql = "SELECT * " +
+                "FROM volunteers";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
@@ -67,67 +64,64 @@ public class JdbcVolunteerDao implements VolunteerDao {
     }
 
     @Override
-    public Volunteer findByUsername(String username) {
-        if (username == null) throw new IllegalArgumentException("Username cannot be null");
+    public Volunteer findByName(String name) {
+        if (name == null) throw new IllegalArgumentException("Name cannot be null");
 
         for (Volunteer volunteer : this.findAll()) {
-            if (volunteer.getUsername().equalsIgnoreCase(username)) {
+            if (volunteer.getName().equalsIgnoreCase(name)) {
                 return volunteer;
             }
         }
-        throw new UsernameNotFoundException("Volunteer " + username + " was not found.");
+        throw new UsernameNotFoundException("Volunteer " + name + " was not found.");
     }
+
+
+    //Possible Fix for multiple tables-OUTPUT functionality in SQL:
+    //INSERT INTO Table1 (param1, param2, param3)
+    //OUTPUT inserted.param1, inserted.param2, inserted.param3
+    //INTO Table2
+    //VALUES(1,'Value1','Value2'), (2, 'Value1','Value2')
 
     @Override
     public int createVolunteer(Volunteer volunteer) {
 
-        String sql = "INSERT INTO volunteers(username, password, role, email, phone, name) " +
-                "VALUES(?,?,?,?,?,?) RETURNING volunteer_id;";
-        int newVolunteerId = jdbcTemplate.queryForObject(sql, Integer.class, volunteer.getUsername(), volunteer.getPassword(),
-                volunteer.getRole(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName());
+        String sql = "INSERT INTO volunteers(name, email, phone) " +
+                "VALUES(?,?,?) RETURNING volunteer_id;";
+        int newVolunteerId = jdbcTemplate.queryForObject(sql, Integer.class, volunteer.getName(),
+                 volunteer.getEmail(), volunteer.getPhone());
 
         return newVolunteerId;
     }
 
     @Override
-    public void updateVolunteer(Volunteer volunteer)  {
+    public void updateVolunteer(Volunteer volunteer) {
 
-        String sql = "UPDATE volunteers " + "SET username = ?, password = ?, role = ?, email = ?, phone = ?, name = ?  WHERE volunteer_id = ? ;";
-        jdbcTemplate.update(sql, volunteer.getUsername(), volunteer.getPassword(), volunteer.getRole(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName(), volunteer.getId());
+        String sql = "UPDATE volunteers " +
+                "SET name = ?, email = ?, phone = ?, application_status_id = ?  " +
+                "WHERE volunteer_id = ? ;";
+        jdbcTemplate.update(sql, volunteer.getName(), volunteer.getEmail(),
+                volunteer.getPhone(), volunteer.getApplicationStatusId(), volunteer.getId());
     }
 
-        @Override
-        public void deleteVolunteer(int id){
+    @Override
+    public void deleteVolunteer(int id) {
         String sql = "DELETE FROM volunteers " +
-                     "WHERE volunteer_id = ?;";
+                "WHERE volunteer_id = ?;";
 
-            jdbcTemplate.update(sql, id);
-
-
-        }
+        jdbcTemplate.update(sql, id);
+    }
 
 
-
-
-
-
-    private Volunteer mapRowToVolunteer(SqlRowSet rsVol){
+    private Volunteer mapRowToVolunteer(SqlRowSet rsVol) {
         Volunteer volunteer = new Volunteer();
         volunteer.setId(rsVol.getInt("volunteer_id"));
-        volunteer.setUsername(rsVol.getString("username"));
-        volunteer.setPassword(rsVol.getString("password"));
-        volunteer.setRole(rsVol.getString("role"));
+        volunteer.setName(rsVol.getString("name"));
         volunteer.setEmail(rsVol.getString("email"));
         volunteer.setPhone(rsVol.getInt("phone"));
-        volunteer.setName(rsVol.getString("name"));
+        volunteer.setApplicationStatusId(rsVol.getInt("application_status_id"));
 
         return volunteer;
     }
-
-
-
-
-
 
 
 }
