@@ -10,9 +10,9 @@ public interface VolunteerDao {
 
     Volunteer getVolunteerById(int volunteerId);
 
-    Volunteer findByUsername(String username);
+    Volunteer findByName(String name);
 
-    int findIdByUsername(String username);
+    int findIdByName(String name);
 
     int createVolunteer(Volunteer volunteer);
 

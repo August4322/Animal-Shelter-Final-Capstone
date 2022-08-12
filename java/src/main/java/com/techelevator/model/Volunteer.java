@@ -2,31 +2,22 @@ package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Volunteer {
     private int id;
-    private String username;
-    @JsonIgnore
-    private String password;
-    @JsonIgnore
-    private boolean activated;
-    //private Set<Authority> authorities = new HashSet<>();
+    private String name;
     private String email;
     private int phone;
-    private String name;
+    private int applicationStatusId = 1;
 
     public Volunteer() {}
 
     //May need to add authorities later
-    public Volunteer(int id, String username, String password, String email, int phone, String name){
+    public Volunteer(int id, String name, String email, int phone, int applicationStatusId){
         this.id = id;
-        this.username = username;
-        this.password = password;
+        this.name =  name;
         this.email = email;
         this.phone = phone;
-        this.name =  name;
+        this.applicationStatusId = applicationStatusId;
     }
 
     public int getId() {
@@ -37,28 +28,12 @@ public class Volunteer {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isActivated() {
-        return activated;
-    }
-
-    public void setActivated(boolean activated) {
-        this.activated = activated;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -77,11 +52,11 @@ public class Volunteer {
         this.phone = phone;
     }
 
-    public String getName() {
-        return name;
+    public int getApplicationStatusId() {
+        return applicationStatusId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setApplicationStatusId(int applicationStatusId) {
+        this.applicationStatusId = applicationStatusId;
     }
 }
