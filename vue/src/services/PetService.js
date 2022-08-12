@@ -18,7 +18,7 @@ export default {
     },
 
     createPet(pet) {
-        const url = "/pets";
+        const url = "/pets/create";
         return http.post(url, pet);
     },
 

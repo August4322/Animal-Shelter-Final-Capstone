@@ -16,23 +16,6 @@ export default {
 </script>
 
 <style scoped>
-  main{
-        height: 100vh;
-        background-color: #d9f1d9;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-  }
-
-  #featured {
-    width: 100%;
-    height: 100%;
-  }
-
-  @media screen and (max-width: 800px) {
-    main {
-      flex-direction: column;
-    }
+  
     
-  }
 </style>

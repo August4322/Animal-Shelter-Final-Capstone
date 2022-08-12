@@ -1,17 +1,21 @@
 <template>
-  <div>
+  <div id="main-grid">
     <div v-if="isLoading">
         <img id="loader" src='@/assets/animal_loader.gif'/>
     </div>
     <!----------------------------------------------------------------->
+    
       <div class="container" v-else>
-        <h2 class="name">{{ pet.name }}</h2>
-        
-          <img class="pic" v-bind:src="pet.image" alt="Are looks all that matter to you?"/>
+      <div id="name">{{ pet.name }}</div>
+        <div id="edit">
+        <router-link v-bind:to="{name: 'edit', params: {id: pet.id}}" v-if="$store.state.token">Edit Pet</router-link>
+        </div>
+    
+          <img id="pic" v-bind:src="pet.image" alt="Are looks all that matter to you?"/>
         
        
-          <h3>"{{ pet.tagline }}"</h3>
-          <div class="details">
+          <h3 id=caption>"{{ pet.tagline }}"</h3>
+          <div id="details">
               <p>Animal Member Id: &emsp;{{pet.id}}</p>
               <p>Gender: {{pet.gender}}</p>
               <p>Age: {{pet.age}}</p>
@@ -22,11 +26,12 @@
                   <p>Fixed: {{pet.fixed ? 'Neutered': 'Neutered'}}</p>
               </div>
           </div>
+          <router-link v-bind:to="{name: 'addVolunteer'}" id="volunteer">Volunteer To Play With Me</router-link>
 
         
 
       </div>
-    <router-link v-bind:to="{name: 'addVolunteer'}" id="volunteer">Volunteer To Play With Me</router-link>
+    
   </div>
 </template>
 
@@ -58,7 +63,7 @@ export default {
            setTimeout( () => {
                this.pet = response.data;
                this.isLoading = false;
-            }, 2000);
+            }, 2500);
   })
   }
 }
@@ -66,56 +71,89 @@ export default {
 </script>
 
 <style scoped>
+#main-grid{
+ 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  "name"
+  "edit"
+  "pic"
+  "details"
+  "volunteer"
+}
+@media screen and (max-height: 800px) {
+  #main-grid {
+    grid-template-columns: 1fr 1fr 2fr 1fr 3fr 1fr;
+    grid-template-areas:
+    "name pic "
+  }
+  
+}
 
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    row-gap: 20px;
+    justify-content: flex-start;
+    row-gap: 24px;
     column-gap: 50px;
     align-items: center;
     height: 90vh;
 }
-.name{
+
+
+
+
+#name{
+    width: 100%;
     padding-top: 8px;
     font-size: 3rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Lora', 'Arial Narrow', Arial, sans-serif;
     margin: auto;
-    color: #000000;
-    text-decoration: underline overline;
+    color: #d9f1d9;
+    text-decoration-line: 1px;
+    text-decoration-color: #d9f1d9;
+    margin:18px;
+    background-color: #434343ff;
+    display: block;
     
 }
 
-.pic{
-    width: 420px;
-    height: 620px;
+#pic{
+    width: 320px;
+    height: 520px;
     border-radius: 12px;
-    border: 4px #f6f6de;
+ 
 }
 
 #loader {
-    width: 300px;
-    height: auto; 
+    width: auto;
+    height: 80vh;
+   
 }
-h3{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+#caption{
+    font-family: 'Lora', Verdana, Geneva, Tahoma, sans-serif;
     font:italic;
     margin: -15px;
 }
 
-.details{
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+#details{
+   font-size: 20px;
+    font-family: 'Lora', Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: space-between;
     gap:40px;
     margin-top: -3px;
 }
 #volunteer{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Lora', Verdana, Geneva, Tahoma, sans-serif;
   font-size: 18px;
   padding-bottom: -40px;
   
+}
+#edit{
+  font-size: 20px;
+  font-family: 'Lora', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 </style>

@@ -24,7 +24,7 @@
         </div>
         <div id="image">
             <label>Image URL</label>
-            <input type ="url" v-model="pet.image"/>
+            <input type ="text" v-model="pet.image"/>
         </div>
         <div id="tagline">
             <label>About Me</label>
@@ -39,7 +39,7 @@
             <input type="checkbox" v-model="pet.fixed"/>
         </div>
         <button type="button" v-on:click="cancel()">Cancel</button> &nbsp;
-        <button type="submit" v-on:click="submitForm()">
+        <button type="submit" v-on:click.prevent="savePet()">
           Submit Application
         </button>
       </form>
@@ -80,8 +80,10 @@ export default {
     methods: {
         savePet() {
             petService.addPet(this.pet).then(
-                () => {
-                    this.$router.push({name:"pets-view"})
+                (response) => {
+                    if(response.status === 201) {
+                    this.$router.push({name:'pets-view'});
+                    }
                 }
             )
             .catch((error) => {
@@ -95,7 +97,7 @@ export default {
             });
             },
             cancel() {
-                this.$router.push("/");
+                this.$router.push({name: 'pets-view'});
             }
         }
     }

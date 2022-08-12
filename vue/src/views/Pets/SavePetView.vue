@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isReady">
      <add-pet v-bind:existingPet="petToEdit"/>
   </div>
 </template>
