@@ -19,8 +19,6 @@ import java.util.List;
 public class JdbcVolunteerDao implements VolunteerDao {
 
 
-
-
     private final JdbcTemplate jdbcTemplate;
 
     public JdbcVolunteerDao(JdbcTemplate jdbcTemplate) {
@@ -78,56 +76,52 @@ public class JdbcVolunteerDao implements VolunteerDao {
         throw new UsernameNotFoundException("Volunteer " + username + " was not found.");
     }
 
+
+    //Possible Fix for multiple tables-OUTPUT functionality in SQL:
+    //INSERT INTO Table1 (param1, param2, param3)
+    //OUTPUT inserted.param1, inserted.param2, inserted.param3
+    //INTO Table2
+    //VALUES(1,'Value1','Value2'), (2, 'Value1','Value2')
+
     @Override
     public int createVolunteer(Volunteer volunteer) {
 
-        String sql = "INSERT INTO volunteers(username, password, role, email, phone, name) " +
+        String sql = "INSERT INTO volunteers(username, password, email, phone, name) " +
                 "VALUES(?,?,?,?,?,?) RETURNING volunteer_id;";
         int newVolunteerId = jdbcTemplate.queryForObject(sql, Integer.class, volunteer.getUsername(), volunteer.getPassword(),
-                volunteer.getRole(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName());
+                 volunteer.getEmail(), volunteer.getPhone(), volunteer.getName());
 
         return newVolunteerId;
     }
 
     @Override
-    public void updateVolunteer(Volunteer volunteer)  {
+    public void updateVolunteer(Volunteer volunteer) {
 
-        String sql = "UPDATE volunteers " + "SET username = ?, password = ?, role = ?, email = ?, phone = ?, name = ?  WHERE volunteer_id = ? ;";
-        jdbcTemplate.update(sql, volunteer.getUsername(), volunteer.getPassword(), volunteer.getRole(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName(), volunteer.getId());
+        String sql = "UPDATE volunteers " + "SET username = ?, password = ?, email = ?, phone = ?, name = ?  " +
+                "WHERE volunteer_id = ? ;";
+        jdbcTemplate.update(sql, volunteer.getUsername(), volunteer.getPassword(), volunteer.getEmail(), volunteer.getPhone(), volunteer.getName(), volunteer.getId());
     }
 
-        @Override
-        public void deleteVolunteer(int id){
+    @Override
+    public void deleteVolunteer(int id) {
         String sql = "DELETE FROM volunteers " +
-                     "WHERE volunteer_id = ?;";
+                "WHERE volunteer_id = ?;";
 
-            jdbcTemplate.update(sql, id);
-
-
-        }
+        jdbcTemplate.update(sql, id);
+    }
 
 
-
-
-
-
-    private Volunteer mapRowToVolunteer(SqlRowSet rsVol){
+    private Volunteer mapRowToVolunteer(SqlRowSet rsVol) {
         Volunteer volunteer = new Volunteer();
         volunteer.setId(rsVol.getInt("volunteer_id"));
         volunteer.setUsername(rsVol.getString("username"));
         volunteer.setPassword(rsVol.getString("password"));
-        volunteer.setRole(rsVol.getString("role"));
         volunteer.setEmail(rsVol.getString("email"));
         volunteer.setPhone(rsVol.getInt("phone"));
         volunteer.setName(rsVol.getString("name"));
 
         return volunteer;
     }
-
-
-
-
-
 
 
 }

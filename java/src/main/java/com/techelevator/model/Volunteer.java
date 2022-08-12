@@ -13,7 +13,6 @@ public class Volunteer {
     @JsonIgnore
     private boolean activated;
     //private Set<Authority> authorities = new HashSet<>();
-    private String role;
     private String email;
     private int phone;
     private String name;
@@ -21,11 +20,10 @@ public class Volunteer {
     public Volunteer() {}
 
     //May need to add authorities later
-    public Volunteer(int id, String username, String password, String role, String email, int phone, String name){
+    public Volunteer(int id, String username, String password, String email, int phone, String name){
         this.id = id;
         this.username = username;
         this.password = password;
-        this.role = role;
         this.email = email;
         this.phone = phone;
         this.name =  name;
@@ -61,14 +59,6 @@ public class Volunteer {
 
     public void setActivated(boolean activated) {
         this.activated = activated;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public String getEmail() {

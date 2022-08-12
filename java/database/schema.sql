@@ -1,8 +1,8 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS volunteers;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS pets;
-DROP TABLE IF EXISTS volunteers;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -26,13 +26,15 @@ CREATE TABLE pets (
 );
 CREATE TABLE volunteers (
     volunteer_id SERIAL,
-    username varchar(50) NOT NULL UNIQUE,
+	user_id int,
+    username varchar(50),
     password varchar(200),
-    role varchar(50),
     email varchar(100) NOT NULL,
     phone int NOT NULL,
     name varchar(100) NOT NULL,
-    CONSTRAINT PK_volunteer PRIMARY KEY (volunteer_id)
+    CONSTRAINT PK_volunteer PRIMARY KEY (volunteer_id),
+	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_volunteer_username FOREIGN KEY (username) REFERENCES users (username)
 );
 
 

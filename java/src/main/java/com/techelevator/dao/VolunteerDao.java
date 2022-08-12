@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface VolunteerDao {
 
-
     List<Volunteer> findAll();
 
     Volunteer getVolunteerById(int volunteerId);
@@ -20,7 +19,6 @@ public interface VolunteerDao {
     void updateVolunteer(Volunteer volunteer);
 
     void deleteVolunteer(int volunteerId);
-
 
 }
 
