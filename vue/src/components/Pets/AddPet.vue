@@ -81,7 +81,7 @@ export default {
         savePet() {
             petService.addPet(this.pet).then(
                 (response) => {
-                    if(response.status === 201) {
+                    if(response.status === 201 || response.status === 202) {
                     this.$router.push({name:'pets-view'});
                     }
                 }

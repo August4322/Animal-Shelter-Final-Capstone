@@ -29,7 +29,7 @@ export default {
     
     addPet(pet){
         if(pet.id) {
-            return this.updatePet(pet);
+            return this.updatePet(pet.id, pet);
         }else {
             return this.createPet(pet);
         }
