@@ -14,12 +14,10 @@
           If you would like to contact us about adoption, donations, volunteering, or any other questions
           you may have, please refer to our details down below.
         </p>
-        <p>
-          Email: wildbreathas@gmail.com
-          Phone: 555-5555
-          Address: 123 Pets Ave. Columbus, OH 43230
-          Venmo: wildbreath123
-        </p>
+        <p>Email: wildbreathas@gmail.com</p>
+        <p>Phone: 555-5555</p>
+        <p>Address: 123 Pets Ave. Columbus, OH 43230</p>
+        <p>Venmo: wildbreath123</p>
       </body>
   </div>
 </template>

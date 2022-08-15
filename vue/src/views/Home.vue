@@ -3,8 +3,8 @@
     <head>
     </head>
     <body>
-      <h1>Welcome to Wildbreath Animal Shelter!</h1>
-      <p></p>
+      <h1>Welcome to WildBreath Animal Shelter!</h1>
+      <p>In the market for a new best friend? Check out our adoptable animals!</p>
       <div>
         <iframe
           width="560"
