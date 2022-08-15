@@ -42,10 +42,17 @@ export default {
   name: "pet-details",
   props: ["petFacts"],
 
-  created() {
-this.petFacts;
-
-  },
+  //this causes 'unexpected mustation of property petFacts error' and page won't load
+  // created() { //load up the object into the above property through 
+  //   //the find method pulling the param off the url
+  //   if (this.$route.params.id) {
+  //     this.petFacts = this.$store.state.pets.find((pet) => {
+  //       return pet.id === this.$route.params.id;
+  //     });
+  //   }
+  // }
+      
+    
 };
 </script>
 
