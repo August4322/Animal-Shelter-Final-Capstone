@@ -32,13 +32,9 @@ const router = new Router({
       name: 'about',
       component: () => import('../views/About.vue'),
       
-      
-      // meta: {
-      //    requiresAuth: true
-      // }
-    },
+      },
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: () => import('../views/Home.vue'),
       
