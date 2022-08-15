@@ -1,5 +1,8 @@
 <template>
   <div>
+    <head>
+    </head>
+    <body>
     <h1>Meet Our Volunteers!</h1>
     <div
       class="volunteer"
@@ -10,6 +13,7 @@
       <p class="email">Email: {{ volunteer.email }}</p>
       <p class="phone">Phone Number: {{ volunteer.phone }}</p>
     </div>
+    </body>
   </div>
 </template>
 

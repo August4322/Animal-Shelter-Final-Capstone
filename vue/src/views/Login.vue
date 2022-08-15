@@ -1,5 +1,7 @@
 <template>
   <div id="login" class="text-center">
+    <head></head>
+    <body>
     <div class="styleform">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -45,6 +47,7 @@
       </div>
     </form>
     </div>
+    </body>
   </div>
 </template>
 
