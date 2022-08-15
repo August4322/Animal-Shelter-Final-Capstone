@@ -1,9 +1,9 @@
 <template>
   <div>
     
-      <header>
+      <head>
         <h1>About Us:</h1>
-      </header>
+      </head>
       <body>
         <p>
           We are an animal shelter dedicated to helping out pets of many sizes and shapes!

@@ -1,50 +1,55 @@
 <template>
   <div id="main-grid">
-    <div class="container">
-      <div id="name">{{ petFacts.name }}</div>
-      <div id="edit">
-        <router-link
-          v-bind:to="{ name: 'edit', params: { id: petFacts.id } }"
-          v-if="$store.state.token"
-          >Edit Pet</router-link
+    <head></head>
+    <body>
+      <div class="container">
+        <div id="name">{{ petFacts.name }}</div>
+        <div id="edit">
+          <router-link
+            v-bind:to="{ name: 'edit', params: { id: petFacts.id } }"
+            v-if="$store.state.token"
+            >Edit Pet</router-link
+          >
+        </div>
+
+        <img
+          id="pic"
+          v-bind:src="petFacts.image"
+          alt="Are looks all that matter to you?"
+        />
+
+        <h3 id="caption">"{{ petFacts.tagline }}"</h3>
+        <div id="details">
+          <p>Animal Member Id: &emsp;{{ petFacts.id }}</p>
+          <p>Gender: {{ petFacts.gender }}</p>
+          <p>Age: {{ petFacts.age }}</p>
+          <div
+            v-if="
+              petFacts.gender.toLowerCase() === 'female' &&
+              petFacts.type != 'bunny'
+            "
+          >
+            <p>Fixed: {{ petFacts.fixed ? "Spayed" : " Not Spayed" }}</p>
+          </div>
+          <div v-if="petFacts.gender.toLowerCase() === 'male'">
+            <p>Fixed: {{ petFacts.fixed ? "Neutered" : "Not Neutered" }}</p>
+          </div>
+        </div>
+        <router-link v-bind:to="{ name: 'addVolunteer' }" id="volunteer"
+          >Volunteer To Play With Me</router-link
         >
       </div>
-
-      <img
-        id="pic"
-        v-bind:src="petFacts.image"
-        alt="Are looks all that matter to you?"
-      />
-
-      <h3 id="caption">"{{ petFacts.tagline }}"</h3>
-      <div id="details">
-        <p>Animal Member Id: &emsp;{{ petFacts.id }}</p>
-        <p>Gender: {{ petFacts.gender }}</p>
-        <p>Age: {{ petFacts.age }}</p>
-        <div v-if="petFacts.gender.toLowerCase() === 'female' && petFacts.type != 'bunny'">
-          <p>Fixed: {{ petFacts.fixed ? "Spayed" : " Not Spayed" }}</p>
-        </div>
-        <div v-if="petFacts.gender.toLowerCase() === 'male'">
-          <p>Fixed: {{ petFacts.fixed ? "Neutered" : "Not Neutered" }}</p>
-        </div>
-      </div>
-      <router-link v-bind:to="{ name: 'addVolunteer' }" id="volunteer"
-        >Volunteer To Play With Me</router-link
-      >
-    </div>
+    </body>
   </div>
 </template>
 
 <script>
-
-
 export default {
   name: "pet-details",
   props: ["petFacts"],
 
   created() {
-this.petFacts;
-
+    this.petFacts;
   },
 };
 </script>

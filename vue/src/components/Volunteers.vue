@@ -1,6 +1,9 @@
 <template>
   <div>
+    <head>
     <h1>Meet Our Volunteers!</h1>
+    </head>
+    <body>
     <div
       class="volunteer"
       v-for="volunteer in this.$store.state.volunteers"
@@ -10,6 +13,7 @@
       <p class="email">Email: {{ volunteer.email }}</p>
       <p class="phone">Phone Number: {{ volunteer.phone }}</p>
     </div>
+    </body>
   </div>
 </template>
 

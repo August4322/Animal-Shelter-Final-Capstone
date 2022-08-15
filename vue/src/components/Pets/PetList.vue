@@ -1,34 +1,37 @@
 <template>
   <div>
-    <div id="container">
-      <div
-        class="petCard"
-        v-for="pet in this.$store.state.pets"
-        v-bind:key="pet.id" v-on:click="goToPet(pet.id)"
-      >
-        <div v-if="pet.available">
-            
-            <img id="frame" v-bind:src="pet.image" alt="Adopt this Pet Today!"/>
-         
-          <h2 class="petName">{{ pet.name }}</h2>
-          <p class="tagline">{{ pet.tagline }}</p>
+    <head></head>
+    <body>
+      <div id="container">
+        <div
+          class="petCard"
+          v-for="pet in this.$store.state.pets"
+          v-bind:key="pet.id"
+          v-on:click="goToPet(pet.id)"
+        >
+          <div v-if="pet.available">
+            <img
+              id="frame"
+              v-bind:src="pet.image"
+              alt="Adopt this Pet Today!"
+            />
+            <h2 class="petName">{{ pet.name }}</h2>
+            <p class="tagline">{{ pet.tagline }}</p>
+          </div>
         </div>
-       
       </div>
-    </div>
+    </body>
   </div>
 </template>
 
 <script>
-
-
 export default {
   name: "pet-list",
   components: {},
   data() {
     return {};
   },
-  
+
   methods: {
     goToPet(petId) {
       this.$router.push({ name: "attributes", params: { id: petId } });
@@ -47,12 +50,11 @@ export default {
   align-items: center;
   border: 2px solid black;
   border-radius: 10px;
-  width:  400px;
+  width: 400px;
   height: 360px;
   margin: 20px;
   background-color: #d9f1d9;
 }
-
 
 .petName {
   font-size: 1.5rem;
@@ -74,8 +76,6 @@ div h3 {
   margin-right: auto;
   border-radius: 50%;
 }
-
-
 
 .petDetails {
   padding-top: 78px;

@@ -1,29 +1,32 @@
 <template>
   <div>
-    <div>
-      <form class="form">
-        <div id="name">
-          <label>Name</label>
-          <input type="text" v-model="volunteer.name" />
-        </div>
-        <div id="username">
-          <label>Username</label>
-          <input type="text" v-model="volunteer.username" />
-        </div>
-        <div id="email">
-          <label>Email</label>
-          <input type="text" v-model="volunteer.email" />
-        </div>
-        <div id="phone">
-          <label>Phone Number</label>
-          <input type="long" v-model="volunteer.phone" />
-        </div>
-        <button type="button" v-on:click="cancel()">Cancel</button> &nbsp;
-        <button type="submit" v-on:click.prevent="submitForm()">
-          Submit Application
-        </button>
-      </form>
-    </div>
+    <head></head>
+    <body>
+      <div>
+        <form class="form">
+          <div id="name">
+            <label>Name</label>
+            <input type="text" v-model="volunteer.name" />
+          </div>
+          <div id="username">
+            <label>Username</label>
+            <input type="text" v-model="volunteer.username" />
+          </div>
+          <div id="email">
+            <label>Email</label>
+            <input type="text" v-model="volunteer.email" />
+          </div>
+          <div id="phone">
+            <label>Phone Number</label>
+            <input type="long" v-model="volunteer.phone" />
+          </div>
+          <button type="button" v-on:click="cancel()">Cancel</button> &nbsp;
+          <button type="submit" v-on:click.prevent="submitForm()">
+            Submit Application
+          </button>
+        </form>
+      </div>
+    </body>
   </div>
 </template>
 
@@ -33,8 +36,6 @@ export default {
   name: "add-volunteer",
   data() {
     return {
-      
-
       volunteer: {
         name: "",
         username: "",
@@ -49,7 +50,7 @@ export default {
         .createVolunteer(this.volunteer)
         .then((response) => {
           if (response.status === 201 || response.status === 200) {
-            this.$router.push({name: 'volunteers'});
+            this.$router.push({ name: "volunteers" });
           }
         })
         .catch((error) => {

@@ -104,14 +104,7 @@ const router = new Router({
       path: '/pets/:id',
       name: 'attributes',
       component: PetAttributes
-    },
-    //-------
-    {
-      path: '/pageForVolunteer',
-      name: 'pageForVolunteer',
-      component: () => import('../views/pageForVolunteer.vue'),
-     
-    },
+    }
    
   ]
 })
