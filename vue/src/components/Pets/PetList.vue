@@ -10,7 +10,7 @@
             
             <img id="frame" v-bind:src="pet.image" alt="Adopt this Pet Today!"/>
          
-          <h2 class="name">{{ pet.name }}</h2>
+          <h2 class="petName">{{ pet.name }}</h2>
           <p class="tagline">{{ pet.tagline }}</p>
         </div>
        
@@ -93,5 +93,6 @@ div h3 {
   flex-wrap: wrap;
   align-items: center;
   margin: auto;
+  width: 100vw;
 }
 </style>

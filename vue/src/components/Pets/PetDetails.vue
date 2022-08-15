@@ -63,7 +63,7 @@ export default {
            setTimeout( () => {
                this.pet = response.data;
                this.isLoading = false;
-            }, 2500);
+            }, 1000);
   })
   }
 }

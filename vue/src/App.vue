@@ -41,4 +41,17 @@
    height: 100px;
  }
 
+
+@media (min-width: 768px) {
+  #app {
+    width: 750px; } }
+
+@media (min-width: 992px) {
+  #app {
+    width: 970px; } }
+
+@media (min-width: 1200px) {
+  #app {
+    width: 1170px; } }
+
 </style>
