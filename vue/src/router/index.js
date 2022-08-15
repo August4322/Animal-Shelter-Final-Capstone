@@ -44,7 +44,7 @@ const router = new Router({
       
       
        meta: {
-          requiresAuth: true
+          requiresAuth: false
        }
     },
 
