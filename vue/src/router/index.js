@@ -28,7 +28,7 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
       
@@ -38,7 +38,7 @@ const router = new Router({
       // }
     },
     {
-      path: '/home',
+      path: '/',
       name: 'home',
       component: () => import('../views/Home.vue'),
       

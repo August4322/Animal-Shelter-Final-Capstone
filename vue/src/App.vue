@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link class="link" v-bind:to="{ name: 'home' }">Home</router-link> &nbsp;|&nbsp;
+      <router-link class="link" v-bind:to="{ name: 'about' }">About Us</router-link> &nbsp;|&nbsp;
       <router-link class="link" v-bind:to="{ name: 'pets-view'}">Browse All Pets</router-link> &nbsp;|&nbsp;
       <router-link class="link" v-bind:to="{ name: 'volunteers' }">View Volunteers</router-link> &nbsp;|&nbsp;
       <router-link class="link" v-bind:to="{ name: 'addVolunteer' }">Apply To Be a Volunteer!</router-link> &nbsp;|&nbsp;
