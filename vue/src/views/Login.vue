@@ -76,6 +76,7 @@ export default {
             this.$store.commit("SET_USER", response.data.user);
             this.$router.replace("/home");
           }
+          
         })
         .catch(error => {
           const response = error.response;
@@ -84,6 +85,7 @@ export default {
             this.invalidCredentials = true;
           }
         });
+        
     }
   }
 };
