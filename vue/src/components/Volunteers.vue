@@ -18,19 +18,14 @@
 </template>
 
 <script>
-import volunteerService from "@/services/VolunteerService.js";
+
 export default {
   name: "volunteers",
   components: {},
   data() {
     return {};
   },
-  created() {
-    volunteerService.findAllVolunteers().then((response) => {
-      let list = response.data;
-      this.$store.commit("ADD_VOLUNTEERS", list);
-    });
-  },
+  
 };
 </script>
 

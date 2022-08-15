@@ -46,17 +46,22 @@
 <script>
 export default {
   name: "pet-details",
-  props: ["petFacts"],
+  data() {
+    return {
+      petFacts: {}
+    }
+  },
+  //props: ["petFacts"],
 
-  //this causes 'unexpected mustation of property petFacts error' and page won't load
-  // created() { //load up the object into the above property through 
-  //   //the find method pulling the param off the url
-  //   if (this.$route.params.id) {
-  //     this.petFacts = this.$store.state.pets.find((pet) => {
-  //       return pet.id === this.$route.params.id;
-  //     });
-  //   }
-  // }
+  //this causes 'unexpected mutation of property petFacts error' and page won't load
+  created() { //load up the object into the above property through 
+    //the find method pulling the param off the url
+    if (this.$route.params.id) {
+      this.petFacts = this.$store.state.pets.find((pet) => {
+        return pet.id === this.$route.params.id;
+      });
+    }
+  }
       
     
 };
