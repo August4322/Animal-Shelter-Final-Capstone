@@ -1,12 +1,12 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) 
-		VALUES ('Joseph123','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER'),
-				('Abigal456','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER'),
-				('Adam789','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER'),
-				('Ruina101','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+		VALUES ('Joseph123','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_USER'),
+				('Abigal456','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_USER'),
+				('Adam','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_ADMIN'),
+				('Ruina101','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_USER');
 
 
 INSERT INTO pets (gender, pet_name, animal_type, color, age, image_link, tagline)
