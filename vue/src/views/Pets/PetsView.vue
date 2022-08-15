@@ -7,9 +7,16 @@
 <script>
 
 import PetList from '../../components/Pets/PetList.vue'
-
+import petService from "@/services/PetService.js";
 export default {
   components: { PetList },
+  created() {
+    petService.getListOfAllPets().then((response) => {
+      let list = response.data;
+      this.$store.commit("ADD_PETS", list);
+    });
+  },
+
 
 }
 </script>

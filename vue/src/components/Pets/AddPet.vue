@@ -40,7 +40,7 @@
         </div>
         <button type="button" v-on:click="cancel()">Cancel</button> &nbsp;
         <button type="submit" v-on:click.prevent="savePet()">
-          Submit Application
+          
         </button>
       </form>
     </div>
@@ -54,6 +54,7 @@ export default {
     data() {
         return{
             errorMsg: "",
+            
             pet: {
              id: "",
              gender: "",
@@ -73,6 +74,7 @@ export default {
     created() {
         if(this.existingPet) {
             this.pet = this.existingPet;
+            
         }
 
     },

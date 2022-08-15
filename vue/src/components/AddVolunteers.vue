@@ -19,7 +19,7 @@
           <input type="long" v-model="volunteer.phone" />
         </div>
         <button type="button" v-on:click="cancel()">Cancel</button> &nbsp;
-        <button type="submit" v-on:click="submitForm()">
+        <button type="submit" v-on:click.prevent="submitForm()">
           Submit Application
         </button>
       </form>
@@ -46,8 +46,8 @@ export default {
       volunteerService
         .createVolunteer(this.volunteer)
         .then((response) => {
-          if (response.status === 201) {
-            this.$router.push("/");
+          if (response.status === 201 || response.status === 200) {
+            this.$router.push({name: 'volunteers'});
           }
         })
         .catch((error) => {

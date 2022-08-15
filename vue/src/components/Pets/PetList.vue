@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import petService from "@/services/PetService.js";
+
 
 export default {
   name: "pet-list",
@@ -28,12 +28,7 @@ export default {
   data() {
     return {};
   },
-  created() {
-    petService.getListOfAllPets().then((response) => {
-      let list = response.data;
-      this.$store.commit("ADD_PETS", list);
-    });
-  },
+  
   methods: {
     goToPet(petId) {
       this.$router.push({ name: "attributes", params: { id: petId } });

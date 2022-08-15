@@ -19,8 +19,9 @@ export default {
         return http.post(url, volunteer);
     },
 
-    updateVolunteer() {
-        return http.put(`/volunteers`);
+    updateVolunteer(volunteer) {
+        const url = '/volunteers';
+        return http.put(url, volunteer);
     },
 
     deleteVolunteer(id) {
