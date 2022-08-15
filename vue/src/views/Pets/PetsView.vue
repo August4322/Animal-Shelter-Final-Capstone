@@ -26,6 +26,7 @@ div {
 background: #d9f1d9;
 margin-left: auto;
 margin-right: auto;
+width: 100vw;
 }
 
 </style>>
