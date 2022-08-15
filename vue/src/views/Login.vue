@@ -76,6 +76,7 @@ export default {
             this.$store.commit("SET_USER", response.data.user);
             this.$router.replace("/home");
           }
+          
         })
         .catch(error => {
           const response = error.response;
@@ -84,6 +85,7 @@ export default {
             this.invalidCredentials = true;
           }
         });
+        
     }
   }
 };
@@ -91,14 +93,16 @@ export default {
 <style scoped>
 .styleform {
   margin: 200px auto;
-  background-image: linear-gradient(to bottom right, #FC4668, #3F5EFB);
+  background-image: linear-gradient(to bottom right, #d9f1d0, #FFFFFF);
   width: 350px;
   height: 100%;
   padding: 20px;
   border-radius: 10px;
+  border-color: #434343ff;
+  
 }
 .form-signin {
-   background-image: linear-gradient(to bottom right, #FC4668, #3F5EFB);
+   background-image: linear-gradient(to bottom right, #d9f1d0, #FFFFFF);
 
 
 }
