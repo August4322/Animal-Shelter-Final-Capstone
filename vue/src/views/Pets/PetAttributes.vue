@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div v-if="isLoading">
-      <img id="loader" src="@/assets/animal_loader.gif" />
-    </div>
+    
     <div>
       <!--bind the imported component props to return property from the view-->
       <pet-details v-bind:petFacts="petCard" id="featured"/>
@@ -31,7 +29,7 @@ export default {
       this.petCard = this.$store.state.pets.find((pet) => {
         return pet.id === this.$route.params.id;
       });
-      this.isLoading = false;
+     
     }
   },
 
