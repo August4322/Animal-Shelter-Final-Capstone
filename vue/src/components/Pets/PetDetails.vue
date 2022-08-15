@@ -21,11 +21,11 @@
         <p>Animal Member Id: &emsp;{{ petFacts.id }}</p>
         <p>Gender: {{ petFacts.gender }}</p>
         <p>Age: {{ petFacts.age }}</p>
-        <div v-if="petFacts.gender === 'Female' && petFacts.type != 'bunny'">
-          <p>{{ petFacts.fixed ? "Spayed" : "Spayed" }}</p>
+        <div v-if="petFacts.gender.toLowerCase() === 'female' && petFacts.type != 'bunny'">
+          <p>Fixed: {{ petFacts.fixed ? "Spayed" : " Not Spayed" }}</p>
         </div>
-        <div v-if="petFacts.gender === 'Male'">
-          <p>Fixed: {{ petFacts.fixed ? "Neutered" : "Neutered" }}</p>
+        <div v-if="petFacts.gender.toLowerCase() === 'male'">
+          <p>Fixed: {{ petFacts.fixed ? "Neutered" : "Not Neutered" }}</p>
         </div>
       </div>
       <router-link v-bind:to="{ name: 'addVolunteer' }" id="volunteer"
