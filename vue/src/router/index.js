@@ -104,7 +104,14 @@ const router = new Router({
       path: '/pets/:id',
       name: 'attributes',
       component: PetAttributes
-    }
+    },
+    {
+      path: '/changePassword',
+      name: 'changePassword',
+      component: () => import('../views/ChangePassword.vue'),
+      
+      
+    },
    
   ]
 })
