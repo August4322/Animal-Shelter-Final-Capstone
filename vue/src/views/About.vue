@@ -1,10 +1,9 @@
 <template>
   <div>
-    
       <head>
-        <h1>About Us:</h1>
       </head>
       <body>
+        <h1>About Us:</h1>
         <p>
           We are an animal shelter dedicated to helping out pets of many sizes and shapes!
           We began in 2022 due to a passion in our founders to promote the adoption of 

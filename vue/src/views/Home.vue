@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <head>
-      <h1>Welcome to Wildbreath Animal Shelter!</h1>
     </head>
     <body>
+      <h1>Welcome to Wildbreath Animal Shelter!</h1>
       <p></p>
       <div>
         <iframe

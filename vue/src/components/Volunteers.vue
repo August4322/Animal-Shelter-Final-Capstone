@@ -1,9 +1,9 @@
 <template>
   <div>
     <head>
-    <h1>Meet Our Volunteers!</h1>
     </head>
     <body>
+    <h1>Meet Our Volunteers!</h1>
     <div
       class="volunteer"
       v-for="volunteer in this.$store.state.volunteers"
