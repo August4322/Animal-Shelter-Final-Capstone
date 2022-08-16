@@ -2,51 +2,63 @@
   <div id="login" class="text-center">
     <head></head>
     <body>
-    <div class="styleform">
-    <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
-      <div
-        class="alert alert-danger"
-        role="alert"
-        v-if="invalidCredentials"
-      >Invalid username and password!</div>
-      <div
-        class="alert alert-success"
-        role="alert"
-        v-if="this.$route.query.registration"
-      >Thank you for registering, please sign in.</div>
-      <label for="username" class="sr-only" >Username</label>
-      <el-input
- 
-        size="medium"
-        prefix-icon="el-icon-user"
-        type="text"
-        id="username"
-        class="form-control"
-        placeholder="Username"
-        v-model="user.username"
-        required
-        autofocus
-      />
-      <label for="password" class="sr-only">Password</label>
-      <el-input
-      size="medium"
-      prefix-icon="el-icon-lock"
-      
-      show-password
-        type="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      />
-      <div class="buttonstyle">
-      <router-link :to="{ name: 'register' }" style="background-color: transparent" >Need an account?</router-link>
-      <button class="sizebutton" type="submit" style="background-color: transparent">Sign in</button>
+      <div class="styleform">
+        <form class="form-signin" @submit.prevent="login">
+          <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+          <div
+            class="alert alert-danger"
+            role="alert"
+            v-if="invalidCredentials"
+          >
+            Invalid username and password!
+          </div>
+          <div
+            class="alert alert-success"
+            role="alert"
+            v-if="this.$route.query.registration"
+          >
+            Thank you for registering, please sign in.
+          </div>
+          <label for="username" class="sr-only">Username</label>
+          <el-input
+            size="medium"
+            prefix-icon="el-icon-user"
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="Username"
+            v-model="user.username"
+            required
+            autofocus
+          />
+          <label for="password" class="sr-only">Password</label>
+          <el-input
+            size="medium"
+            prefix-icon="el-icon-lock"
+            show-password
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Password"
+            v-model="user.password"
+            required
+          />
+          <div class="buttonstyle">
+            <router-link
+              :to="{ name: 'register' }"
+              style="background-color: transparent"
+              >Need an account?</router-link
+            >
+            <button
+              class="sizebutton"
+              type="submit"
+              style="background-color: transparent"
+            >
+              Sign in
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
-    </div>
     </body>
   </div>
 </template>
@@ -74,10 +86,18 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
+            // if the user.logins is less than 2 push changepasswordvview
+            }
+            //ask christopher why this is broken
+        
+            if(this.$store.state.user.logins <= 1) {
+              this.$router.push({name: 'changePassword'})
+            } else {
             this.$router.push("/home");
+            }
           }
           
-        })
+        )
         .catch(error => {
           const response = error.response;
 
@@ -93,18 +113,15 @@ export default {
 <style scoped>
 .styleform {
   margin: 200px auto;
-  background-image: linear-gradient(to bottom right, #d9f1d0, #FFFFFF);
+  background-image: linear-gradient(to bottom right, #d9f1d0, #ffffff);
   width: 350px;
   height: 100%;
   padding: 20px;
   border-radius: 10px;
   border-color: #434343ff;
-  
 }
 .form-signin {
-   background-image: linear-gradient(to bottom right, #d9f1d0, #FFFFFF);
-
-
+  background-image: linear-gradient(to bottom right, #d9f1d0, #ffffff);
 }
 /* .username {
   margin: 10px 0;
@@ -125,10 +142,8 @@ export default {
 .sr-only {
   background-color: transparent;
 }
-.sizebutton{
+.sizebutton {
   width: 100px;
   height: 30px;
 }
-
-
 </style>
