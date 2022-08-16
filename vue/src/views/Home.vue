@@ -5,7 +5,7 @@
       <link
         rel="stylesheet"
         type="text/css"
-        href="C:\Users\Student\workspace\nlr-8-final-capstone-animal-shelter\vue\src\assets\global.css"
+        href="@/src/assets/global.css"
       />
     </head>
 
@@ -16,21 +16,10 @@
           In the market for a new best friend? Check out our adoptable animals!
         </p>
         <div>
-          <!-- <video width=800px height=600px  controls autoplay muted >
-           <source src="/video/6mbs.mp4" type="video/mp4">Your browser does not support the video tag
-           </video>-->
-          <iframe
-            id="cats"
-            width="1000px;"
-            height="600px;"
-            src="https://www.youtube.com/embed/KvE92fCMbmc?autoplay=1"
-            title="YouTube video player"
-            frameborder="0"
-            autoplay
-            muted
-            allow="autoplay"
-          >
-          </iframe>
+          <video width=1000px height=600px autoplay muted loop="loop">
+           <source src="/video/test2.mp4" type='video/mp4'>Your browser does not support the video tag
+           </video>
+         
           <div class="contact">
             <div id="contact">
               <p>Contact Us:</p>

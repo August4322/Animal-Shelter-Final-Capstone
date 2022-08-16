@@ -10,6 +10,7 @@
 
 <script>
 import PetDetails from "../../components/Pets/PetDetails.vue";
+import petService from '@/services/PetService.js';
 
 export default {
   components: {
@@ -22,16 +23,15 @@ export default {
       isLoading: true,
     }
   },
-  // created() {
-  //   //load up the object into the above property through 
-  //   //the find method pulling the param off the url
-  //   if (this.$route.params.id) {
-  //     this.petCard = this.$store.state.pets.find((pet) => {
-  //       return pet.id === this.$route.params.id;
-  //     });
-     
-  //   }
-  // },
+  created() {
+    if(this.$store.state.pets.length <= 1) {
+    petService.getListOfAllPets().then((response) => {
+      let list = response.data;
+      this.$store.commit("ADD_PETS", list);
+    });
+  }
+  },
+ 
 
-};
+}
 </script>

@@ -5,12 +5,12 @@
       <link
         rel="stylesheet"
         type="text/css"
-        href="C:\Users\Student\workspace\nlr-8-final-capstone-animal-shelter\vue\src\assets\global.css"
+        href="@/src/assets/global.css"
       />
     </head>
     <body>
     <div id="header">
-      <img src="public\img\WildBreath Animal Shelter.png" alt="WildBreath Animal Shelter"/>
+      <!--<img src="/img/WildBreath Animal Shelter.png" alt="WildBreath Animal Shelter"/>-->
     </div>
     <div id="nav">
       <router-link class="link" v-bind:to="{ name: 'home' }">Home</router-link>
