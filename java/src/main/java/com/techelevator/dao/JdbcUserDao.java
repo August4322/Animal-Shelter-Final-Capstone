@@ -32,6 +32,7 @@ public class JdbcUserDao implements UserDao {
         return jdbcTemplate.update(sql, id) == 1;
     }
 
+
     @Override
     public int findIdByUsername(String username) {
         if (username == null) throw new IllegalArgumentException("Username cannot be null");
@@ -91,6 +92,14 @@ public class JdbcUserDao implements UserDao {
 
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
     }
+    @Override
+    public boolean changePassword(int id, String password) {
+        String updateSql = "update users set password_hash = ? where user_id = ?";
+        String password_hash = new BCryptPasswordEncoder().encode(password);
+
+        return jdbcTemplate.update(updateSql, password_hash, id) == 1;
+    }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

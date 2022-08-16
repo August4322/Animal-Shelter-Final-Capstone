@@ -18,6 +18,8 @@ public interface UserDao {
 
     boolean upLoginCount(int id);
 
+    boolean changePassword(int id, String password);
+
 
 
 
