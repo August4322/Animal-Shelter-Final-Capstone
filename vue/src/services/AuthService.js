@@ -10,7 +10,7 @@ export default {
     return axios.post('/register', user)
   },
   updateUserPwd(user){
-    return axios.post('/changepassword', user)
+    return axios.put('/changepassword', user)
   }
 
 }
