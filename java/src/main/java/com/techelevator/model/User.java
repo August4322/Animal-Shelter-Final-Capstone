@@ -16,6 +16,15 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private String newPassword;
+
+   public String getNewPassword() {
+      return newPassword;
+   }
+
+   public void setNewPassword(String newPassword) {
+      this.newPassword = newPassword;
+   }
 
    public User() { }
 

@@ -65,7 +65,7 @@ public class AuthenticationController {
     @RequestMapping(value = "/changepassword", method = RequestMethod.PUT)
     public void changePassword(@Valid @RequestBody User user) {
         try {
-            userDao.changePassword(user.getId(), user.getPassword());
+            userDao.changePassword(user.getId(), user.getNewPassword());
             throw new UserNotFoundException();
         } catch(UserNotFoundException e) {
             System.out.println("User not found");
