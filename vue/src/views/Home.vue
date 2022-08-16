@@ -1,16 +1,12 @@
 <template>
   <div class="home">
     <head>
-      <title>WildBreath Animal Shelter-Home</title>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="C:\Users\Student\workspace\nlr-8-final-capstone-animal-shelter\vue\src\assets\global.css"
-      />
+      <title>Home</title>
+      <link rel="stylesheet" type="text/css" href="src/assets/global.css" />
     </head>
 
     <body>
-      <div class="container">
+      <div class="mainContainer">
         <h1>Welcome to WildBreath Animal Shelter!</h1>
         <p>
           In the market for a new best friend? Check out our adoptable animals!
@@ -33,7 +29,7 @@
           </iframe>
           <div class="contact">
             <div id="contact">
-              <p>Contact Us:</p>
+              <h2>Contact Us:</h2>
               &nbsp;&nbsp;
               <p>Email: wildbreathas@gmail.com</p>
               &nbsp;&nbsp;
