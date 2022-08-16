@@ -17,6 +17,8 @@ public class User {
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
    private String newPassword;
+   private String newPassword1;
+
 
    public String getNewPassword() {
       return newPassword;
