@@ -23,7 +23,6 @@
     </body>
   </div>
 </template>
-
 <script>
 export default {
   name: "pet-list",
@@ -31,7 +30,6 @@ export default {
   data() {
     return {};
   },
-
   methods: {
     goToPet(petId) {
       this.$router.push({ name: "attributes", params: { id: petId } });
@@ -39,7 +37,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .petCard {
   display: flex;
@@ -55,14 +52,12 @@ export default {
   margin: 20px;
   background-color: #d9f1d9;
 }
-
 .petName {
   font-size: 1.5rem;
 }
 div h3 {
   font-size: 1rem;
 }
-
 #frame {
   height: 60%;
   width: 40%;
@@ -76,11 +71,9 @@ div h3 {
   margin-right: auto;
   border-radius: 50%;
 }
-
 .petDetails {
   padding-top: 78px;
 }
-
 #container {
   display: flex;
   justify-content: center;

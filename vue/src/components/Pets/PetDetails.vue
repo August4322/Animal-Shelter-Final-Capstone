@@ -11,13 +11,11 @@
             >Edit Pet</router-link
           >
         </div>
-
         <img
           id="pic"
           v-bind:src="petFacts.image"
           alt="Are looks all that matter to you?"
         />
-
         <h3 id="caption">"{{ petFacts.tagline }}"</h3>
         <div id="details">
           <p>Animal Member Id: &emsp;{{ petFacts.id }}</p>
@@ -42,20 +40,19 @@
     </body>
   </div>
 </template>
-
 <script>
 import petService from '@/services/PetService.js';
 export default {
   name: "pet-details",
   data() {
     return {
-      petFacts: {}
-    }
+      petFacts: {},
+    };
   },
   //props: ["petFacts"],
-
   //this causes 'unexpected mutation of property petFacts error' and page won't load
-  created() { //load up the object into the above property through 
+  created() {
+    //load up the object into the above property through
     //the find method pulling the param off the url
      if(this.$store.state.pets.length < 1) {
     petService.getListOfAllPets().then((response) => {
@@ -68,12 +65,9 @@ export default {
         return pet.id === this.$route.params.id;
       });
     }
-  }
-      
-    
+  },
 };
 </script>
-
 <style scoped>
 #main-grid {
   display: grid;
@@ -91,7 +85,6 @@ export default {
     grid-template-areas: "name pic ";
   }
 }
-
 .container {
   display: flex;
   flex-direction: column;
@@ -101,7 +94,6 @@ export default {
   align-items: center;
   height: 90vh;
 }
-
 #name {
   width: 100%;
   padding-top: 8px;
@@ -115,13 +107,11 @@ export default {
   background-color: #434343ff;
   display: block;
 }
-
 #pic {
   width: 320px;
   height: 520px;
   border-radius: 12px;
 }
-
 #loader {
   width: auto;
   height: 80vh;
@@ -131,7 +121,6 @@ export default {
   font: italic;
   margin: -15px;
 }
-
 #details {
   font-size: 20px;
   font-family: "Lora", Verdana, Geneva, Tahoma, sans-serif;
