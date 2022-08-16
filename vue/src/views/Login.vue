@@ -91,7 +91,7 @@ export default {
             //ask christopher why this is broken
         
             if(this.$store.state.user.logins <= 1) {
-              this.$router.push({name: 'changePassword'})
+              this.$router.push({name: 'changepassword'})
             } else {
             this.$router.push("/home");
             }

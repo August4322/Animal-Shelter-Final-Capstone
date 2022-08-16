@@ -41,8 +41,8 @@ export default {
     var validatePass2 = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("Please enter new password again"));
-      } else if (value !== this.resetForm.newpwd) {
-        callback(new Error("The password you entered is incorrect!"));
+      } else if (value !== this.user.newpwd) {
+        callback(new Error("The password you entered is not matching!"));
       } else {
         callback();
       }
