@@ -9,6 +9,7 @@ import java.util.Set;
 public class User {
 
    private int id;
+   private int logins;
    private String username;
    @JsonIgnore
    private String password;
@@ -60,6 +61,14 @@ public class User {
 
    public Set<Authority> getAuthorities() {
       return authorities;
+   }
+
+   public int getLogins() {
+      return logins;
+   }
+
+   public void setLogins(int login_count) {
+      this.logins = login_count;
    }
 
    public void setAuthorities(Set<Authority> authorities) {
