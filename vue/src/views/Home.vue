@@ -1,50 +1,70 @@
 <template>
   <div class="home">
     <head>
+      <title>WildBreath Animal Shelter-Home</title>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="C:\Users\Student\workspace\nlr-8-final-capstone-animal-shelter\vue\src\assets\global.css"
+      />
     </head>
+
     <body>
-      <h1>Welcome to WildBreath Animal Shelter!</h1>
-      <p>In the market for a new best friend? Check out our adoptable animals!</p>
-      <div>
-        <!--<video width=800px height=600px  controls >
+      <div class="container">
+        <h1>Welcome to WildBreath Animal Shelter!</h1>
+        <p>
+          In the market for a new best friend? Check out our adoptable animals!
+        </p>
+        <div>
+          <!--<video width=800px height=600px  controls >
            <source src="/video/landing.mp4" type="video/mp4">Your browser does not support the video tag
            </video>-->
-        <iframe id="cats"
-          width= 1000px;
-          height=600px;
-          src="https://www.youtube.com/embed/KvE92fCMbmc?autoplay=1"
-          title="YouTube video player"
-          frameborder="0"
-          autoplay muted
-          allow="autoplay"
-          
-        >
-        </iframe>
+          <iframe
+            id="cats"
+            width="1000px;"
+            height="600px;"
+            src="https://www.youtube.com/embed/KvE92fCMbmc?autoplay=1"
+            title="YouTube video player"
+            frameborder="0"
+            autoplay
+            muted
+            allow="autoplay"
+          >
+          </iframe>
+          <div class="contact">
+            <div id="contact">
+              <p>Contact Us:</p>
+              &nbsp;&nbsp;
+              <p>Email: wildbreathas@gmail.com</p>
+              &nbsp;&nbsp;
+              <p>Phone: 555-5555</p>
+              &nbsp;&nbsp;
+              <p>Address: 123 Pets Ave. Columbus, OH 43230</p>
+              &nbsp;&nbsp;
+              <p>Venmo: wildbreath123</p>
+            </div>
+          </div>
+        </div>
       </div>
     </body>
   </div>
 </template>
 
 <script>
-import volunteerService from '@/services/VolunteerService.js';
-import petService from '@/services/PetService.js';
+import volunteerService from "@/services/VolunteerService.js";
+import petService from "@/services/PetService.js";
 
 export default {
   name: "home",
-   created() {
+  created() {
     volunteerService.findAllVolunteers().then((response) => {
       let list = response.data;
       this.$store.commit("ADD_VOLUNTEERS", list);
     });
-     petService.getListOfAllPets().then((response) => {
+    petService.getListOfAllPets().then((response) => {
       let list = response.data;
       this.$store.commit("ADD_PETS", list);
     });
-
-
-    
-    
   },
-
 };
 </script>
