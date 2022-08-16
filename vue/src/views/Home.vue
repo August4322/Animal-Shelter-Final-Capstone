@@ -6,9 +6,10 @@
       <h1>Welcome to WildBreath Animal Shelter!</h1>
       <p>In the market for a new best friend? Check out our adoptable animals!</p>
       <div>
-        <!--<video width=800px height=600px  controls >
-           <source src="/video/landing.mp4" type="video/mp4">Your browser does not support the video tag
-           </video>-->
+        <video width=800px height=600px  controls autoplay muted >
+           <source src="/video/6mbs.mp4" type="video/mp4">Your browser does not support the video tag
+           </video>
+          <!--
         <iframe id="cats"
           width= 1000px;
           height=600px;
@@ -20,6 +21,7 @@
           
         >
         </iframe>
+        -->
       </div>
     </body>
   </div>
