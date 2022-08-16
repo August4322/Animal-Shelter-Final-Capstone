@@ -50,6 +50,11 @@ export default {
         .createVolunteer(this.volunteer)
         .then((response) => {
           if (response.status === 201 || response.status === 200) {
+            volunteerService.findAllVolunteers().then((response) => {
+              let list = response.data;
+              this.$store.commit("ADD_VOLUNTEERS", list);
+            });
+
             this.$router.push({ name: "volunteers" });
           }
         })

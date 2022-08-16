@@ -24,6 +24,15 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
+    public boolean upLoginCount(int id) {
+        String sql =    "UPDATE users " +
+                        "Set logins = logins + 1 " +
+                        "Where user_id = ?;";
+
+        return jdbcTemplate.update(sql, id) == 1;
+    }
+
+    @Override
     public int findIdByUsername(String username) {
         if (username == null) throw new IllegalArgumentException("Username cannot be null");
 
@@ -88,6 +97,7 @@ public class JdbcUserDao implements UserDao {
         user.setId(rs.getInt("user_id"));
         user.setUsername(rs.getString("username"));
         user.setPassword(rs.getString("password_hash"));
+        user.setLogins(rs.getInt("logins"));
         user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
         user.setActivated(true);
         return user;

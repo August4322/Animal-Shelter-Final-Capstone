@@ -87,6 +87,10 @@ export default {
         .then((response) => {
           if (response.status === 201 || response.status === 202) {
             this.$router.push({ name: "pets-view" });
+            petService.getListOfAllPets().then((response) => {
+            let list = response.data;
+            this.$store.commit("ADD_PETS", list);
+    });
           }
         })
         .catch((error) => {
