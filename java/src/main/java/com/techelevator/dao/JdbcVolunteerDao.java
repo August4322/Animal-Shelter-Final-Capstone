@@ -103,6 +103,15 @@ public class JdbcVolunteerDao implements VolunteerDao {
     }
 
     @Override
+    public boolean denyApplication(String username) {
+        String sql =    "UPDATE volunteers " +
+                "SET application_status_id = 3 " +
+                "WHERE username = ?;";
+        return jdbcTemplate.update(sql,username) == 1;
+    }
+
+
+    @Override
     public int approveNewVolunteer(String username) {
 
         String sql = "INSERT INTO users(username) " +

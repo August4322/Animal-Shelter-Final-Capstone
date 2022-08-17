@@ -57,9 +57,17 @@ export default new Vuex.Store({
       );
         
     },
-    // SET_OLD_PASSWORD(state, password) {
-    //   state.oldPassword=password;
-    // }
+    DENY_APPLICATION(state, volunteer) {
+      state.volunteers.forEach(
+       (x) => {
+         if (x.username === volunteer.username) {
+           x.applicationStatusId = 3
+         }
+       }
+     );
+       
+   },
+  
 
 
   }

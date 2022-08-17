@@ -31,13 +31,13 @@ public class PetController {
     }
 
 
-    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/create", method = RequestMethod.POST)
     public int createPet(@RequestBody Pet pet){return dao.createPet(pet);}
 
 
-    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @ResponseStatus(HttpStatus.ACCEPTED)
     @RequestMapping(path = "/edit/{id}",method = RequestMethod.PUT)
     public void updateExistingPet(@PathVariable int id,@RequestBody Pet pet) {

@@ -22,6 +22,7 @@
                   <td v-if="volunteer.applicationStatusId == 1">{{volunteer.phone}}</td>
                   <!--This is not working right.-->
                   <td v-if="volunteer.applicationStatusId == 1"><a href="#" v-on:click="approve(volunteer)"> Approve </a></td>
+                  <td v-if="volunteer.applicationStatusId == 1"><a href="#" v-on:click="deny(volunteer)">Deny</a></td>
                   
                   
                 
@@ -60,8 +61,16 @@ export default {
           if (response.status === 201) {
             this.$store.commit("APPROVE_APPLICATION", volunteer);
           }
-    });
-      
+    }); 
+    },
+    deny(volunteer){
+      volunteerService.denyVolunteer(volunteer).then(
+        (response) => {
+          if (response.status === 200) {
+            this.$store.commit("DENY_APPLICATION", volunteer);
+          }
+        }
+      );
     } 
   }
    

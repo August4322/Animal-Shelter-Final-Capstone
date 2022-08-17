@@ -6,12 +6,23 @@ const http = axios.create({
 
 export default {
 
-    approveVolunteer(volunteer){
-        return http.post(`/admin`, volunteer, {headers: {
-            "Content-Type": "application/json"}
+    approveVolunteer(volunteer) {
+        return http.post(`/admin`, volunteer, {
+            headers: {
+                "Content-Type": "application/json"
+            }
         }
-);
+        );
 
+    },
+
+    denyVolunteer(volunteer) {
+        return http.put('/admin', volunteer, {
+            headers: {
+                "Content-Type": "application/json"
+            } 
+        }
+        );
     },
 
     findAllVolunteers() {
@@ -37,7 +48,7 @@ export default {
     },
 
     saveVolunteer(volunteer) {
-        if(volunteer.id) {
+        if (volunteer.id) {
             return this.updateVolunteer(volunteer);
         } else {
             return this.createVolunteer(volunteer);

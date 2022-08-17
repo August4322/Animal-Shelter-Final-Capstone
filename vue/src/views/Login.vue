@@ -44,11 +44,7 @@
             required
           />
           <div class="buttonstyle">
-            <router-link
-              :to="{ name: 'register' }"
-              style="background-color: transparent"
-              >Need an account?</router-link
-            >
+       
             <button
               class="sizebutton"
               type="submit"

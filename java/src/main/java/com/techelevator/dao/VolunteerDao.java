@@ -22,6 +22,7 @@ public interface VolunteerDao {
 
     int approveNewVolunteer(String username);
 
+    boolean denyApplication(String username);
     boolean approveApplication(String username);
 
 }
