@@ -7,7 +7,10 @@
     <body>
       <div class="mainContainer">
         <div id="header">
-         <img src="/public/img/Banner900.jpg" alt="WildBreath Animal Shelter Banner"/>
+          <img
+            src="/public/img/Banner900.jpg"
+            alt="WildBreath Animal Shelter Banner"
+          />
         </div>
         <div id="nav">
           <router-link class="link" v-bind:to="{ name: 'home' }"
@@ -21,7 +24,7 @@
           <router-link class="link" v-bind:to="{ name: 'pets-view' }"
             >Browse All Pets</router-link
           >
-            &nbsp;|&nbsp;
+          &nbsp;|&nbsp;
           <router-link
             class="link"
             v-bind:to="{ name: 'create' }"
@@ -29,12 +32,11 @@
             >Add a Pet</router-link
           >
 
-
           &nbsp;|&nbsp;
           <router-link class="link" v-bind:to="{ name: 'volunteers' }"
             >View Volunteers</router-link
           >
-          
+
           &nbsp;|&nbsp;
           <router-link class="link" v-bind:to="{ name: 'addVolunteer' }"
             >Apply To Be a Volunteer!</router-link
@@ -46,10 +48,6 @@
             v-show="!$store.state.token"
             >Log in</router-link
           >
-          &nbsp;|&nbsp;
-          <!--v-if="$store.state.user.authorities[0].name === 'ROLE_ADMIN'"  check the truthyness of using an && to check two things    
-          <router-link class="link" v-bind:to="{name: 'admin'}" v-if="$store.state.user || $store.state.user.authorities[0].name === 'ROLE_ADMIN' ">Admin</router-link>
-          -->
 
           &nbsp;|&nbsp;
           <router-link
@@ -58,7 +56,6 @@
             v-if="$store.state.token != ''"
             >Logout
           </router-link>
-        
         </div>
 
         <router-view />
