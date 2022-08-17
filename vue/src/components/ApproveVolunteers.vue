@@ -25,13 +25,20 @@
 </template>
 
 <script>
+import volunteerService from '../services/VolunteerService.js';
 export default {
     name: 'approve-volunteers',
     data() {
         return {
             volunteer: {}
         }
-    }
+    },
+    
+  methods: {
+    approve(){
+      volunteerService.approveVolunteer(this.volunteer);
+    } 
+  }
    
 
 }

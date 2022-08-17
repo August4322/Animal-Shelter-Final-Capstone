@@ -6,6 +6,7 @@
 </template>
 
 <script>
+
 import ApproveVolunteers from '../components/ApproveVolunteers.vue';
 
 export default {
@@ -15,7 +16,8 @@ export default {
       isReady: true,
       volunteers: {}
     }
-  }
+  },
+
 }
 
 
