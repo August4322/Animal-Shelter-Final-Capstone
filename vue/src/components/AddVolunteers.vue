@@ -12,7 +12,7 @@
             <label>Name</label>&emsp;
             <el-input
               size="medium"
-              prefix-icon="el-icon-user"
+              prefix-icon="el-icon-picture-outline"
               placeholder="First Last"
               type="text"
               v-model="volunteer.name"
@@ -34,7 +34,7 @@
             <label>Email</label>
             <el-input
               size="medium"
-              prefix-icon="el-icon-user"
+              prefix-icon="el-icon-message"
               placeholder="Email@email.com"
               type="text"
               v-model="volunteer.email"
@@ -45,7 +45,7 @@
             <label>Phone Number</label>
             <el-input
               size="medium"
-              prefix-icon="el-icon-user"
+              prefix-icon="el-icon-phone-outline"
               placeholder="1231231234"
               type="long"
               v-model="volunteer.phone"
