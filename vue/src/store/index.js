@@ -47,14 +47,14 @@ export default new Vuex.Store({
       state.volunteers = list;
     },
     APPROVE_APPLICATION(state, volunteer) {
-      const approvedVolunteers = state.volunteers.map(
+       state.volunteers.forEach(
         (x) => {
           if (x.username === volunteer.username) {
             x.applicationStatusId = 2
           }
         }
       );
-        state.volunteers = approvedVolunteers;
+      
     }
 
   }
