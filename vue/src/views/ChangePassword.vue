@@ -41,7 +41,7 @@ export default {
     var validatePass2 = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("Please enter new password again"));
-      } else if (value !== this.user.newPassword) {
+      } else if (value !== this.user.newPassword1) {
         callback(new Error("The password you entered is not matching!"));
       } else {
         callback();

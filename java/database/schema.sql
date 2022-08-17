@@ -26,8 +26,8 @@ CREATE TABLE users (
 	to allow the two tables to match up*/
 	user_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
-	password_hash varchar(200) NOT NULL,
-	role varchar(50) NOT NULL,
+	password_hash varchar(200) default ('$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley'),
+	role varchar(50) NOT NULL default ('ROLE_USER'),
 	logins int default 0,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
@@ -46,13 +46,12 @@ CREATE TABLE pets (
 );
 CREATE TABLE volunteers (
     volunteer_id SERIAL,
-	user_id int,
+	username varchar(100) unique NOT NULL,
 	name varchar(100) NOT NULL,
     email varchar(100) NOT NULL,
     phone int NOT NULL,
     application_status_id int NOT NULL DEFAULT(1),
     CONSTRAINT PK_volunteer PRIMARY KEY (volunteer_id),
-	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_volunteer_application_status FOREIGN KEY (application_status_id) REFERENCES application_status(application_status_id)
 );
 

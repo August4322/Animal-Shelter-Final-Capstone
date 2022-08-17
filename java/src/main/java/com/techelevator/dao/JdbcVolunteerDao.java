@@ -85,12 +85,22 @@ public class JdbcVolunteerDao implements VolunteerDao {
     @Override
     public int createVolunteer(Volunteer volunteer) {
 
-        String sql = "INSERT INTO volunteers(name, email, phone) " +
-                "VALUES(?,?,?) RETURNING volunteer_id;";
-        int newVolunteerId = jdbcTemplate.queryForObject(sql, Integer.class, volunteer.getName(),
+        String sql = "INSERT INTO volunteers(name, username, email, phone) " +
+                "VALUES(?,?,?,?) RETURNING volunteer_id;";
+        int newVolunteerId = jdbcTemplate.queryForObject(sql, Integer.class, volunteer.getName(), volunteer.getUsername(),
                  volunteer.getEmail(), volunteer.getPhone());
 
         return newVolunteerId;
+    }
+
+    @Override
+    public int approveNewVolunteer(Volunteer person) {
+
+        String sql = "INSERT INTO users(username) " +
+                        "VALUES (?) RETURNING user_id;";
+        int newUserId = jdbcTemplate.queryForObject(sql, Integer.class, person.getUsername());
+
+        return newUserId;
     }
 
     @Override
@@ -116,6 +126,7 @@ public class JdbcVolunteerDao implements VolunteerDao {
         Volunteer volunteer = new Volunteer();
         volunteer.setId(rsVol.getInt("volunteer_id"));
         volunteer.setName(rsVol.getString("name"));
+        volunteer.setUsername(rsVol.getString("username"));
         volunteer.setEmail(rsVol.getString("email"));
         volunteer.setPhone(rsVol.getInt("phone"));
         volunteer.setApplicationStatusId(rsVol.getInt("application_status_id"));

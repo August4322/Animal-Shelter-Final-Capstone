@@ -20,6 +20,8 @@ public interface VolunteerDao {
 
     void deleteVolunteer(int volunteerId);
 
+    int approveNewVolunteer(Volunteer person);
+
 }
 
 
