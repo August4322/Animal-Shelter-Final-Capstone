@@ -33,7 +33,7 @@ public class VolunteerController {
 
     //@PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value="/volunteers", method = RequestMethod.POST)
+    @RequestMapping(value="/volunteer/apply", method = RequestMethod.POST)
     public int createVolunteer(@RequestBody Volunteer volunteer) {
         //User user= userDao.update()
         //(update user set role=ROLE_ADMIN where username =?)

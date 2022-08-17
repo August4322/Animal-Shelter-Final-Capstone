@@ -23,7 +23,7 @@ export default {
     },
 
     createVolunteer(volunteer) {
-        const url = "/volunteers";
+        const url = "/volunteer/apply";
         return http.post(url, volunteer);
     },
 
