@@ -99,6 +99,19 @@ public class JdbcUserDao implements UserDao {
 
         return jdbcTemplate.update(updateSql, password_hash, id) == 1;
     }
+    @Override
+    public String getHashByUserId(int id) {
+        String sql = "select password_hash from users where user_id = ?";
+         String result = jdbcTemplate.queryForObject(sql, String.class, id);
+         return result;
+
+    }
+
+    @Override
+    public boolean comparePasswords(String storedPassword, String enteredPassword) {
+
+        return storedPassword.equals(enteredPassword);
+    }
 
 
     private User mapRowToUser(SqlRowSet rs) {
