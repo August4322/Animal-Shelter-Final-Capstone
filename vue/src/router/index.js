@@ -79,13 +79,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    //admin router path
+    //admin router path to approve volunteers
     {
       path: '/admin',
       name: 'admin',
       component: Admin
 
     },
+    ///////////////////
     {
       path: '/volunteers',
       name: 'volunteers',

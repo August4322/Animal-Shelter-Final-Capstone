@@ -6,7 +6,7 @@ public class Volunteer {
     private int id;
     private String name;
     private String email;
-    private int phone;
+    private long phone;
     private int applicationStatusId = 1;
 
     public String getUsername() {
@@ -54,7 +54,7 @@ public class Volunteer {
         this.email = email;
     }
 
-    public int getPhone() {
+    public long getPhone() {
         return phone;
     }
 

@@ -2,10 +2,13 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.UserDao;
 import com.techelevator.dao.VolunteerDao;
+import com.techelevator.model.ApproveVolunteerDTO;
 import com.techelevator.model.UserAlreadyExistsException;
 import com.techelevator.model.Volunteer;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -50,9 +53,10 @@ public class VolunteerController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/admin", method = RequestMethod.POST)
-    public void approveVolunteer(@RequestBody Volunteer person) {
+    public void approveVolunteer(@Valid @RequestBody ApproveVolunteerDTO person) {
         try {
-            daoV.approveNewVolunteer(person);
+            daoV.approveNewVolunteer(person.getUsername());
+            daoV.approveApplication(person.getUsername());
             throw new UserAlreadyExistsException();
         } catch (UserAlreadyExistsException derp) {
             System.out.println("The username must be unique.");

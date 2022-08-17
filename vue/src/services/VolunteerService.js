@@ -7,7 +7,7 @@ const http = axios.create({
 export default {
 
     approveVolunteer(volunteer){
-        return http.post(`/admin`, volunteer);
+        return http.post(`/admin`, volunteer.username);
 
     },
 

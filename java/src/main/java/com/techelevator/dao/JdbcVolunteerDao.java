@@ -94,11 +94,20 @@ public class JdbcVolunteerDao implements VolunteerDao {
     }
 
     @Override
-    public int approveNewVolunteer(Volunteer person) {
+    public boolean approveApplication(String username) {
+        String sql =    "UPDATE volunteers " +
+                        "SET application_status_id = 2 " +
+                        "WHERE username = ?;";
+
+        return jdbcTemplate.update(sql, username) == 1;
+    }
+
+    @Override
+    public int approveNewVolunteer(String username) {
 
         String sql = "INSERT INTO users(username) " +
                         "VALUES (?) RETURNING user_id;";
-        int newUserId = jdbcTemplate.queryForObject(sql, Integer.class, person.getUsername());
+        int newUserId = jdbcTemplate.queryForObject(sql, Integer.class, username);
 
         return newUserId;
     }

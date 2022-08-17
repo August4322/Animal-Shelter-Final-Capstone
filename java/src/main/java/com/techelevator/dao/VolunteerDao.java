@@ -20,7 +20,9 @@ public interface VolunteerDao {
 
     void deleteVolunteer(int volunteerId);
 
-    int approveNewVolunteer(Volunteer person);
+    int approveNewVolunteer(String username);
+
+    boolean approveApplication(String username);
 
 }
 
