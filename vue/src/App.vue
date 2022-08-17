@@ -7,7 +7,7 @@
     <body>
       <div class="mainContainer">
         <div id="header">
-         <img src="/public/img/Banner.png" alt="WildBreath Animal Shelter Banner"/>
+         <img src="/public/img/Banner900.jpg" alt="WildBreath Animal Shelter Banner"/>
         </div>
         <div id="nav">
           <router-link class="link" v-bind:to="{ name: 'home' }"

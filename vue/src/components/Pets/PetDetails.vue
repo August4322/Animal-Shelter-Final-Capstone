@@ -16,32 +16,34 @@
           v-bind:src="petFacts.image"
           alt="Are looks all that matter to you?"
         />
-        <h3 id="caption">"{{ petFacts.tagline }}"</h3>
-        <div id="details">
-          <p>Animal Member Id: &emsp;{{ petFacts.id }}</p>
-          <p>Gender: {{ petFacts.gender }}</p>
-          <p>Age: {{ petFacts.age }}</p>
-          <div
-            v-if="
-              petFacts.gender.toLowerCase() === 'female' &&
-              petFacts.type != 'bunny'
-            "
+        <div class="petDetails">
+          <h3 id="caption">"{{ petFacts.tagline }}"</h3>
+          <div id="details">
+            <p>Animal Member Id: &emsp;{{ petFacts.id }}</p>
+            <p>Gender: {{ petFacts.gender }}</p>
+            <p>Age: {{ petFacts.age }}</p>
+            <div
+              v-if="
+                petFacts.gender.toLowerCase() === 'female' &&
+                petFacts.type != 'bunny'
+              "
+            >
+              <p>Fixed: {{ petFacts.fixed ? "Spayed" : " Not Spayed" }}</p>
+            </div>
+            <div v-if="petFacts.gender.toLowerCase() === 'male'">
+              <p>Fixed: {{ petFacts.fixed ? "Neutered" : "Not Neutered" }}</p>
+            </div>
+          </div>
+          <router-link v-bind:to="{ name: 'addVolunteer' }" id="volunteer"
+            >Volunteer To Play With Me</router-link
           >
-            <p>Fixed: {{ petFacts.fixed ? "Spayed" : " Not Spayed" }}</p>
-          </div>
-          <div v-if="petFacts.gender.toLowerCase() === 'male'">
-            <p>Fixed: {{ petFacts.fixed ? "Neutered" : "Not Neutered" }}</p>
-          </div>
         </div>
-        <router-link v-bind:to="{ name: 'addVolunteer' }" id="volunteer"
-          >Volunteer To Play With Me</router-link
-        >
       </div>
     </body>
   </div>
 </template>
 <script>
-import petService from '@/services/PetService.js';
+import petService from "@/services/PetService.js";
 export default {
   name: "pet-details",
   data() {
@@ -54,12 +56,12 @@ export default {
   created() {
     //load up the object into the above property through
     //the find method pulling the param off the url
-     if(this.$store.state.pets.length < 1) {
-    petService.getListOfAllPets().then((response) => {
-      let list = response.data;
-      this.$store.commit("ADD_PETS", list);
-    });
-  }
+    if (this.$store.state.pets.length < 1) {
+      petService.getListOfAllPets().then((response) => {
+        let list = response.data;
+        this.$store.commit("ADD_PETS", list);
+      });
+    }
     if (this.$route.params.id) {
       this.petFacts = this.$store.state.pets.find((pet) => {
         return pet.id === this.$route.params.id;
@@ -98,9 +100,9 @@ export default {
   width: 100%;
   padding-top: 8px;
   font-size: 3rem;
-  font-family: "Lora", "Arial Narrow", Arial, sans-serif;
+  font-family: "Lora", Arial, Helvetica, sans-serif;
   margin: auto;
-  color: #d9f1d9;
+  color: #b4e3b4;
   text-decoration-line: 1px;
   text-decoration-color: #d9f1d9;
   margin: 18px;
@@ -111,6 +113,9 @@ export default {
   width: 320px;
   height: 520px;
   border-radius: 12px;
+  border: 5px solid #434343;
+  padding: 3px;
+  margin: 5px;
 }
 #loader {
   width: auto;
@@ -137,5 +142,18 @@ export default {
 #edit {
   font-size: 20px;
   font-family: "Lora", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.petDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  height: 600px;
+  width: 55%;
+  margin: 10px;
+  padding: 15px;
+  background-color: #b4e3b4;
+  border: 3px solid #434343;
 }
 </style>

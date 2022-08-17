@@ -7,6 +7,7 @@
     <body>
       <div class="mainContainer">
         <h1>About Us</h1>
+        <img id="volunteerPic" src="/public/img/Volunteer.jpg" alt="Volunteer holding a puppy"/>
         <h2>Who We Are</h2>
         <p class="paragraph">
           We are an animal shelter dedicated to helping out pets of many sizes
@@ -25,7 +26,6 @@
           expression, nation of origin, age, languages spoken, religion,
           disability, sexual orientation, and/or beliefs.
         </p>
-        <h2>Contact Us</h2>
         <p class="paragraph">
           If you would like to contact us about adoption, donations,
           volunteering, or any other questions you may have, please refer to our

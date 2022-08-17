@@ -55,12 +55,11 @@ export default {
 .petName {
   font-size: 1.5rem;
 }
-div h3 {
-  font-size: 1rem;
-}
+
 #frame {
   height: 60%;
   width: 40%;
+  border:5px solid #434343; padding:3px; margin:5px
 }
 .petImg {
   max-width: 400px;
