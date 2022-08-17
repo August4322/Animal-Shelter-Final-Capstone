@@ -7,7 +7,7 @@
     <body>
       <div class="mainContainer">
         <h1>About Us</h1>
-        <img id="volunteerPic" src="/public/img/Volunteer.jpg" alt="Volunteer holding a puppy"/>
+        <img id="volunteerPic" src="/img/Volunteer.jpg" alt="Volunteer holding a puppy"/>
         <h2>Who We Are</h2>
         <p class="paragraph">
           We are an animal shelter dedicated to helping out pets of many sizes

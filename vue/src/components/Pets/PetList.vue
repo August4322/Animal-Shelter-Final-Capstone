@@ -59,7 +59,8 @@ export default {
 #frame {
   height: 60%;
   width: 40%;
-  border:5px solid #434343; padding:3px; margin:5px
+  border:5px solid #434343; padding:3px; margin:5px;
+  border-radius: 10px;
 }
 .petImg {
   max-width: 400px;
@@ -79,7 +80,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  margin: auto;
-  width: 100vw;
+  margin: 0 auto;
+  width: 80vw;
 }
 </style>

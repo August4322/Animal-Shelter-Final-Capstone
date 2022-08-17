@@ -1,6 +1,9 @@
 <template>
   <div>
-    <head></head>
+    <head>
+      <title>Volunteer Application</title>
+      <link rel="stylesheet" type="text/css" href="src/assets/global.css" />
+    </head>
     <body>
       <div>
         <form class="form">
@@ -68,9 +71,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.form {
-  background-color: white;
-}
-</style>

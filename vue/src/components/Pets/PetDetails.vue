@@ -150,10 +150,11 @@ export default {
   justify-content: space-evenly;
   text-align: center;
   height: 600px;
-  width: 55%;
+  width: 45%;
   margin: 10px;
   padding: 15px;
   background-color: #b4e3b4;
   border: 3px solid #434343;
+  border-radius: 10px;
 }
 </style>
