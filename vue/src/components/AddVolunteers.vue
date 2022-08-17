@@ -9,7 +9,7 @@
         <form class="form">
           <h2>Volunteer Now!</h2>
           <div id="name">
-            <label>Name</label>&emsp;
+            <label>Name</label>
             <el-input
               size="medium"
               prefix-icon="el-icon-picture-outline"

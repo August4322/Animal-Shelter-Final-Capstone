@@ -1,38 +1,72 @@
 <template>
   <div>
-    <head>
-        
-    </head>
+    <head> </head>
     <body>
       <div>
         <form class="form">
           <div id="gender">
             <label>Gender</label>
-            <input type="text" v-model="pet.gender" />
+            <el-input type="text" v-model="pet.gender" />
           </div>
           <div id="name">
             <label>Name</label>
-            <input type="text" v-model="pet.name" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-picture-outline"
+              placeholder="Fluffy / Socks / etc."
+              type="text"
+              v-model="pet.name"
+            />
           </div>
           <div id="type">
             <label>Animal Type</label>
-            <input type="text" v-model="pet.type" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-football"
+              placeholder="Cat / Dog / etc."
+              type="text"
+              v-model="pet.type"
+            />
           </div>
           <div id="color">
             <label>Color</label>
-            <input type="long" v-model="pet.color" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-sunny"
+              placeholder="Brown / Calico / etc."
+              type="long"
+              v-model="pet.color"
+            />
           </div>
           <div id="age">
             <label>Age in years</label>
-            <input type="decimal" v-model="pet.age" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-time"
+              placeholder="3 / 24 / etc."
+              type="decimal"
+              v-model="pet.age"
+            />
           </div>
           <div id="image">
             <label>Image URL</label>
-            <input type="text" v-model="pet.image" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-camera"
+              placeholder="image/img"
+              type="text"
+              v-model="pet.image"
+            />
           </div>
           <div id="tagline">
             <label>About Me</label>
-            <input type="text" v-model="pet.tagline" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-medal-1"
+              placeholder="I like to cuddle / play / etc."
+              type="text"
+              v-model="pet.tagline"
+            />
           </div>
           <div id="available">
             <label>Available</label>
@@ -42,8 +76,13 @@
             <label>Is Fixed</label>
             <input type="checkbox" v-model="pet.fixed" />
           </div>
-          <button type="button" v-on:click="cancel()">Cancel</button> &nbsp;
-          <button type="submit" v-on:click.prevent="savePet()">Save Pet</button>
+          <button id="button" type="button" v-on:click="cancel()">
+            Cancel
+          </button>
+          &nbsp;
+          <button id="button" type="submit" v-on:click.prevent="savePet()">
+            Save Pet
+          </button>
         </form>
       </div>
     </body>
@@ -88,9 +127,9 @@ export default {
           if (response.status === 201 || response.status === 202) {
             this.$router.push({ name: "pets-view" });
             petService.getListOfAllPets().then((response) => {
-            let list = response.data;
-            this.$store.commit("ADD_PETS", list);
-    });
+              let list = response.data;
+              this.$store.commit("ADD_PETS", list);
+            });
           }
         })
         .catch((error) => {
