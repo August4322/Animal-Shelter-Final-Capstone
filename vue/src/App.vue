@@ -46,7 +46,6 @@
             v-show="!$store.state.token"
             >Log in</router-link
           >
-          &nbsp;&nbsp;
 
 
           &nbsp;&nbsp;

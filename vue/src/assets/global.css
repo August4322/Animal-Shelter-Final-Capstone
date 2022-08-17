@@ -176,13 +176,14 @@ input {
     display: flex;
     justify-content: flex-start;
 }
-*/
 
+*/
 #button {
     margin: 10px 0;
     text-align: right;
     background-color: transparent;
 }
+
 
 
 /*Screen Formatting*/
