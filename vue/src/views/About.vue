@@ -8,7 +8,7 @@
       <div class="mainContainer">
         <h1>About Us</h1>
         <h2>Who We Are</h2>
-        <p>
+        <p class="paragraph">
           We are an animal shelter dedicated to helping out pets of many sizes
           and shapes! We began in 2022 as a non-profit due to a passion to
           promote the adoption of animals that need a home. We hope you browse
@@ -16,7 +16,7 @@
           you!
         </p>
         <h2>Diversity Statement</h2>
-        <p>
+        <p class="paragraph">
           We respect, honor, and value diversity, and we are committed to
           cultivating and preserving a culture of inclusion and collaboration.
           We can best serve our community with a diverse team of volunteers. We
@@ -26,7 +26,7 @@
           disability, sexual orientation, and/or beliefs.
         </p>
         <h2>Contact Us</h2>
-        <p>
+        <p class="paragraph">
           If you would like to contact us about adoption, donations,
           volunteering, or any other questions you may have, please refer to our
           details down below.

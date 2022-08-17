@@ -45,12 +45,12 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  border: 2px solid black;
+  border: 3px solid #434343;
   border-radius: 10px;
   width: 400px;
   height: 360px;
   margin: 20px;
-  background-color: #d9f1d9;
+  background-color: #B4E3B4;
 }
 .petName {
   font-size: 1.5rem;
