@@ -11,6 +11,9 @@ export default {
   },
   updateUserPwd(user){
     return axios.put('/changepassword', user)
+  },
+  getOldPassword(){
+    return axios.get('/changepassword')
   }
 
 }

@@ -18,7 +18,23 @@ public class User {
    private Set<Authority> authorities = new HashSet<>();
    private String newPassword;
    private String newPassword1;
+   private String oldPassword;
 
+   public String getNewPassword1() {
+      return newPassword1;
+   }
+
+   public void setNewPassword1(String newPassword1) {
+      this.newPassword1 = newPassword1;
+   }
+
+   public String getOldPassword() {
+      return oldPassword;
+   }
+
+   public void setOldPassword(String oldPassword) {
+      this.oldPassword = oldPassword;
+   }
 
    public String getNewPassword() {
       return newPassword;

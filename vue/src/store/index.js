@@ -21,7 +21,8 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     pets: [],
-    volunteers: []
+    volunteers: [],
+    oldPassword: {},
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -47,15 +48,19 @@ export default new Vuex.Store({
       state.volunteers = list;
     },
     APPROVE_APPLICATION(state, volunteer) {
-      const approvedVolunteers = state.volunteers.map(
+       state.volunteers.forEach(
         (x) => {
           if (x.username === volunteer.username) {
             x.applicationStatusId = 2
           }
         }
       );
-        state.volunteers = approvedVolunteers;
+        
+    },
+    SET_OLD_PASSWORD(state, password) {
+      state.oldPassword=password;
     }
+
 
   }
 })

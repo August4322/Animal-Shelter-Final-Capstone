@@ -11,12 +11,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
+
+import java.security.Principal;
 
 @RestController
 @CrossOrigin
@@ -71,6 +74,24 @@ public class AuthenticationController {
             System.out.println("User not found");
         }
     }
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value= "/changepassword", method = RequestMethod.POST)
+    public String hashThis(@RequestBody String me) {
+        return new BCryptPasswordEncoder().encode(me);
+
+    }
+
+    @RequestMapping(value="/changepassword", method = RequestMethod.GET)
+    public String hashMatch(Principal user) {
+        String username = user.getName();
+        int userid = userDao.findIdByUsername(username);
+        String userHash = userDao.getHashByUserId(userid);
+
+
+
+        return userHash;
+    }
+
 
     /**
      * Object to return as body in JWT Authentication.

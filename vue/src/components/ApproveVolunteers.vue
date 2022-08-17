@@ -1,6 +1,7 @@
 <template>
   <div>
-          <table>
+    <h2>Pending Applications to Approve: </h2>
+          <table id="pendingApplications">
           <thead>
               <tr>
                   <th>Volunteer Id:</th>
@@ -57,7 +58,7 @@ export default {
       volunteerService.approveVolunteer(volunteer).then(
         (response) => {
           if (response.status === 201) {
-            this.$router.push({ name: 'admin'});
+            this.$store.commit("APPROVE_APPLICATION", volunteer);
           }
     });
       

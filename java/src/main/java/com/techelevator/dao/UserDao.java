@@ -19,6 +19,8 @@ public interface UserDao {
     boolean upLoginCount(int id);
 
     boolean changePassword(int id, String password);
+    String getHashByUserId(int id);
+    boolean comparePasswords(String storedPassword, String enteredPassword);
 
 
 

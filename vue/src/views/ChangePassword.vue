@@ -9,12 +9,12 @@
     >
       <el-form-item label="Current Password：" prop="password">
         <el-input 
-         type="password" v-model="user.password" auto-complete="off" show-password></el-input>
+         type="password" v-model="user.oldPassword" auto-complete="off" show-password></el-input>
       </el-form-item>
-      <el-form-item label="New Password：" prop="newpwd">
+      <el-form-item label="New Password：" prop="newPassword">
         <el-input type="password" v-model="user.newPassword" auto-complete="off" show-password></el-input>
       </el-form-item>
-      <el-form-item label="Confirm Password：" prop="newpassword1">
+      <el-form-item label="Confirm Password：" prop="newPassword1">
         <el-input type="password" v-model="user.newPassword1" auto-complete="off" show-password></el-input>
       </el-form-item>
       <el-form-item>
@@ -29,28 +29,36 @@ import AuthService from '../services/AuthService';
 
 export default {
   data() {
-    var validatePass = (rule, value, callback) => {
-      if (!value) {
+    var validatePass2 = (rule, value, callback) => {
+      if (!value ) {
         callback(new Error("Please enter new password"));
       } else if (value.toString().length < 6 || value.toString().length > 18) {
         callback(new Error("Password length should be between 6 and 18"));
-      } else {
+      }  else{
         callback();
       }
     };
-    var validatePass2 = (rule, value, callback) => {
+    var validatePass3 = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("Please enter new password again"));
-      } else if (value !== this.user.newPassword1) {
+      } else if (value !== this.user.newPassword) {
         callback(new Error("The password you entered is not matching!"));
       } else {
         callback();
       }
     };
+       var validatePass = (rule, value, callback) => {
+       if (value!== this.$store.state.oldPassword) {
+         callback(new Error("The password you typed is not right"));
+       }  
+        else {
+         callback();
+       }
+     };
     return {
       user: {
         id: this.$store.state.user.id,
-        password: "",
+        oldPassword: "",
         newPassword: "",
         newPassword1: "",
       
@@ -58,29 +66,43 @@ export default {
       },
       resetFormRules: {
          password: [
-            { required: true, message: "please enter current password", trigger: 'blur' }
+            { required: true, validator:validatePass, trigger: 'blur' }
         ],  
         newPassword: [
-            { required: true, validator: validatePass, trigger: 'blur' }
+            { required: true, validator: validatePass2, trigger: 'blur' }
         ],
         newPassword1: [
-          { required: true, validator: validatePass2, trigger: "blur" }
+          { required: true, validator: validatePass3, trigger: "blur" }
         ]
       }
     };
   },
+  created() {
+      AuthService.getOldPassword().then((response) => {
+        if(response.status===200){
+          this.$store.commit("SET_OLD_PASSWORD",response.data)
+        }
+      })
+  },
   methods: {
    submit() {
-          
-            
-                  AuthService.updateUserPwd(this.user)
+                 
+                 this.$refs['resetForm'].validate((valid) => {
+                   if(valid) {
+
+                       AuthService.updateUserPwd(this.user)
                   .then((response) => {
                       if(response.status===200) {
+                        this.$store.commit("SET_AUTH_TOKEN", response.data.token);
                           this.$router.push({name: "login"});
                       }
                   }
 
                   )
+                   }
+                 })
+            
+                 
               
           
               
