@@ -7,7 +7,10 @@ const http = axios.create({
 export default {
 
     approveVolunteer(volunteer){
-        return http.post(`/admin`, volunteer.username);
+        return http.post(`/admin`, volunteer, {headers: {
+            "Content-Type": "application/json"}
+        }
+);
 
     },
 

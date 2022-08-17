@@ -2,6 +2,9 @@
   <div>
     <head>
     </head>
+   
+     <router-link v-if="hasAuthority" v-bind:to="{name: 'admin'}" >Admin</router-link>
+   
     <body>
     <h1>Meet Our Volunteers!</h1>
     <div
@@ -25,10 +28,11 @@ export default {
   name: "volunteers",
   components: {},
   data() {
-    return {};
-  },
+    return {
+      hasAuthority: (this.$store.state.user && this.$store.state.user.authorities[0].name === 'ROLE_ADMIN')
+  }
   
-};
+}}
 </script>
 
 <style scoped>

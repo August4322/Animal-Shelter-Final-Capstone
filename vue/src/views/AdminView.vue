@@ -14,8 +14,6 @@ export default {
   components: { ApproveVolunteers },
   data() {
     return {
-      isReady: true,
-      volunteers: {}
     }
   },
   created() {

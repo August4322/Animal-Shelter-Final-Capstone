@@ -19,9 +19,10 @@
                   <td v-if="volunteer.applicationStatusId == 1">{{volunteer.username}}</td>
                   <td v-if="volunteer.applicationStatusId == 1">{{volunteer.email}}</td>
                   <td v-if="volunteer.applicationStatusId == 1">{{volunteer.phone}}</td>
-                  <td v-if="volunteer.applicationStatusId == 1"><a href="#" v-on:click="approveVolunteer(volunteer)"> Approve </a></td>
-                  <!--insert a checkbox input to toggle approved status-->
-                  <!--<td>{{volunteer.}}</td>-->
+                  <!--This is not working right.-->
+                  <td v-if="volunteer.applicationStatusId == 1"><a href="#" v-on:click="approve(volunteer)"> Approve </a></td>
+                  
+                  
                 
               </tr>
           </tbody>
@@ -36,8 +37,10 @@ export default {
     data() {
         return {
           errorMsg: "",
+         
+         
 
-      newVolunteer: {
+      volunteer: {
         id: "",
         name: "",
         email: "",
@@ -50,8 +53,8 @@ export default {
     },
     
   methods: {
-    approve(){
-      volunteerService.approveVolunteer(this.volunteer).then(
+    approve(volunteer){
+      volunteerService.approveVolunteer(volunteer).then(
         (response) => {
           if (response.status === 201) {
             this.$router.push({ name: 'admin'});

@@ -21,12 +21,20 @@
           <router-link class="link" v-bind:to="{ name: 'pets-view' }"
             >Browse All Pets</router-link
           >
+            &nbsp;|&nbsp;
+          <router-link
+            class="link"
+            v-bind:to="{ name: 'create' }"
+            v-if="$store.state.token"
+            >Add a Pet</router-link
+          >
+
+
           &nbsp;|&nbsp;
           <router-link class="link" v-bind:to="{ name: 'volunteers' }"
             >View Volunteers</router-link
           >
-          &nbsp;|&nbsp;
-          <router-link class="link" v-bind:to="{name: 'admin'}">Admin</router-link>
+          
           &nbsp;|&nbsp;
           <router-link class="link" v-bind:to="{ name: 'addVolunteer' }"
             >Apply To Be a Volunteer!</router-link
@@ -39,19 +47,18 @@
             >Log in</router-link
           >
           &nbsp;|&nbsp;
+          <!--v-if="$store.state.user.authorities[0].name === 'ROLE_ADMIN'"  check the truthyness of using an && to check two things    
+          <router-link class="link" v-bind:to="{name: 'admin'}" v-if="$store.state.user || $store.state.user.authorities[0].name === 'ROLE_ADMIN' ">Admin</router-link>
+          -->
+
+          &nbsp;|&nbsp;
           <router-link
             class="link"
             v-bind:to="{ name: 'logout' }"
             v-if="$store.state.token != ''"
             >Logout
           </router-link>
-          &nbsp;&nbsp;
-          <router-link
-            class="link"
-            v-bind:to="{ name: 'create' }"
-            v-if="$store.state.token"
-            >&nbsp;| Add a Pet</router-link
-          >
+        
         </div>
 
         <router-view />
