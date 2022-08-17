@@ -57,9 +57,9 @@ export default new Vuex.Store({
       );
         
     },
-    SET_OLD_PASSWORD(state, password) {
-      state.oldPassword=password;
-    }
+    // SET_OLD_PASSWORD(state, password) {
+    //   state.oldPassword=password;
+    // }
 
 
   }

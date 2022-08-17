@@ -7,10 +7,10 @@
       status-icon
       label-width="100px"
     >
-      <el-form-item label="Current Password：" prop="password">
+      <!-- <el-form-item label="Current Password：" prop="password">
         <el-input 
-         type="password" v-model="user.oldPassword" auto-complete="off" show-password></el-input>
-      </el-form-item>
+         type="password" v-model="user.password" auto-complete="off" show-password></el-input>
+      </el-form-item> -->
       <el-form-item label="New Password：" prop="newPassword">
         <el-input type="password" v-model="user.newPassword" auto-complete="off" show-password></el-input>
       </el-form-item>
@@ -29,7 +29,7 @@ import AuthService from '../services/AuthService';
 
 export default {
   data() {
-    var validatePass2 = (rule, value, callback) => {
+    var validatePass = (rule, value, callback) => {
       if (!value ) {
         callback(new Error("Please enter new password"));
       } else if (value.toString().length < 6 || value.toString().length > 18) {
@@ -38,7 +38,7 @@ export default {
         callback();
       }
     };
-    var validatePass3 = (rule, value, callback) => {
+    var validatePass1 = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("Please enter new password again"));
       } else if (value !== this.user.newPassword) {
@@ -47,32 +47,32 @@ export default {
         callback();
       }
     };
-       var validatePass = (rule, value, callback) => {
-       if (value!== this.$store.state.oldPassword) {
-         callback(new Error("The password you typed is not right"));
-       }  
-        else {
-         callback();
-       }
-     };
+    //    var validatePass = (rule, value, callback) => {
+    //    if (value!== this.$store.state.oldPassword) {
+    //      callback(new Error("The password you typed is not right"));
+    //    }  
+    //     else {
+    //      callback();
+    //    }
+    //  };
     return {
       user: {
         id: this.$store.state.user.id,
-        oldPassword: "",
+       // password: "",
         newPassword: "",
         newPassword1: "",
       
       
       },
       resetFormRules: {
-         password: [
-            { required: true, validator:validatePass, trigger: 'blur' }
-        ],  
+        //  password: [
+        //     { required: true, message: "hi", trigger: 'blur' }
+        // ],  
         newPassword: [
-            { required: true, validator: validatePass2, trigger: 'blur' }
+            { required: true, validator: validatePass, trigger: 'blur' }
         ],
         newPassword1: [
-          { required: true, validator: validatePass3, trigger: "blur" }
+          { required: true, validator: validatePass1, trigger: "blur" }
         ]
       }
     };
