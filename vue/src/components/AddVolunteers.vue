@@ -7,24 +7,56 @@
     <body>
       <div>
         <form class="form">
+          <h2>Volunteer Now!</h2>
           <div id="name">
-            <label>Name</label>
-            <input type="text" v-model="volunteer.name" />
+            <label>Name</label>&emsp;
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-user"
+              placeholder="First Last"
+              type="text"
+              v-model="volunteer.name"
+              required
+            />
           </div>
           <div id="username">
             <label>Username</label>
-            <input type="text" v-model="volunteer.username" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-user"
+              placeholder="Username123"
+              type="text"
+              v-model="volunteer.username"
+              required
+            />
           </div>
           <div id="email">
             <label>Email</label>
-            <input type="text" v-model="volunteer.email" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-user"
+              placeholder="Email@email.com"
+              type="text"
+              v-model="volunteer.email"
+              required
+            />
           </div>
           <div id="phone">
             <label>Phone Number</label>
-            <input type="long" v-model="volunteer.phone" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-user"
+              placeholder="1231231234"
+              type="long"
+              v-model="volunteer.phone"
+              required
+            />
           </div>
-          <button type="button" v-on:click="cancel()">Cancel</button> &nbsp;
-          <button type="submit" v-on:click.prevent="submitForm()">
+          <button id="button" type="button" v-on:click="cancel()">
+            Cancel
+          </button>
+          &nbsp;
+          <button id="button" type="submit" v-on:click.prevent="submitForm()">
             Submit Application
           </button>
         </form>

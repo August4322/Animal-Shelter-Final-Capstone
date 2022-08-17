@@ -4,7 +4,7 @@
     <body>
       <div class="styleform">
         <form class="form-signin" @submit.prevent="login">
-          <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+          <h2>Please Sign In</h2>
           <div
             class="alert alert-danger"
             role="alert"
@@ -118,7 +118,7 @@ export default {
   height: 100%;
   padding: 20px;
   border-radius: 10px;
-  border-color: #434343ff;
+  border-color: #434343;
 }
 .form-signin {
   background-image: linear-gradient(to bottom right, #d9f1d0, #ffffff);
@@ -133,15 +133,10 @@ export default {
 } */
 .buttonstyle {
   margin: 10px 0;
-  text-align: right;
+  text-align: center;
   background-color: transparent;
 }
-.h3 {
-  background-color: transparent;
-}
-.sr-only {
-  background-color: transparent;
-}
+
 .sizebutton {
   width: 100px;
   height: 30px;
