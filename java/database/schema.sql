@@ -49,7 +49,7 @@ CREATE TABLE volunteers (
 	username varchar(100) unique NOT NULL,
 	name varchar(100) NOT NULL,
     email varchar(100) NOT NULL,
-    phone int NOT NULL,
+    phone bigint NOT NULL,
     application_status_id int NOT NULL DEFAULT(1),
     CONSTRAINT PK_volunteer PRIMARY KEY (volunteer_id),
 	CONSTRAINT FK_volunteer_application_status FOREIGN KEY (application_status_id) REFERENCES application_status(application_status_id)

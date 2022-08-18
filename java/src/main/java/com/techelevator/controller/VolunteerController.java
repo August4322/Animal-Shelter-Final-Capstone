@@ -41,13 +41,13 @@ public class VolunteerController {
         return daoV.createVolunteer(volunteer);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value="/volunteers", method = RequestMethod.PUT)
     public void updateVolunteer(@RequestBody Volunteer volunteer) {
         daoV.updateVolunteer(volunteer);
     };
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/volunteers/{id}", method = RequestMethod.DELETE)
     public void deleteVolunteer(@PathVariable int id) {daoV.deleteVolunteer(id);};
@@ -65,7 +65,7 @@ public class VolunteerController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value="/admin", method = RequestMethod.PUT)
     public void deny(@RequestBody ApproveVolunteerDTO person) {
            daoV.denyApplication(person.getUsername());

@@ -146,7 +146,7 @@ public class JdbcVolunteerDao implements VolunteerDao {
         volunteer.setName(rsVol.getString("name"));
         volunteer.setUsername(rsVol.getString("username"));
         volunteer.setEmail(rsVol.getString("email"));
-        volunteer.setPhone(rsVol.getInt("phone"));
+        volunteer.setPhone(rsVol.getLong("phone"));
         volunteer.setApplicationStatusId(rsVol.getInt("application_status_id"));
 
         return volunteer;

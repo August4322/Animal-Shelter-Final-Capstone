@@ -22,7 +22,7 @@ public class Volunteer {
     public Volunteer() {}
 
     //May need to add authorities later
-    public Volunteer(int id, String name, String email, int phone, int applicationStatusId){
+    public Volunteer(int id, String name, String email, long phone, int applicationStatusId){
         this.id = id;
         this.name =  name;
         this.email = email;
@@ -58,7 +58,7 @@ public class Volunteer {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 

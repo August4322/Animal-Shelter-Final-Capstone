@@ -6,7 +6,13 @@
         <form class="form">
           <div id="gender">
             <label>Gender</label>
-            <el-input type="text" v-model="pet.gender" />
+            <el-input
+              size="medium"
+              prefix-icon="el-icon-female"
+              placeholder="Female / Male"
+              type="text"
+              v-model="pet.gender"
+            />
           </div>
           <div id="name">
             <label>Name</label>
@@ -53,7 +59,7 @@
             <el-input
               size="medium"
               prefix-icon="el-icon-camera"
-              placeholder="image/img"
+              placeholder="/img/pickme.jpg"
               type="text"
               v-model="pet.image"
             />
