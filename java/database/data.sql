@@ -3,10 +3,10 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) 
-		VALUES ('Joseph123','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_USER'),
-				('Abigail456','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_USER'),
+		VALUES ('Joseph','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_ADMIN'),
+				('Abigail','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_ADMIN'),
 				('Adam','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_ADMIN'),
-				('Ruina101','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_USER');
+				('Ruina','$2a$10$FgQ0ujuzF2bFWdGC6ngZnejKbtYLk4c.KoCN2mfPIDn5kiCWarley','ROLE_ADMIN');
 
 
 INSERT INTO pets (gender, pet_name, animal_type, color, age, image_link, tagline)

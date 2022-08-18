@@ -1,15 +1,16 @@
 <template>
   <div>
-    <h2>Pending Applications to Approve: </h2>
+    <h2>Pending Applications: </h2>
           <table id="pendingApplications">
           <thead>
-              <tr>
+              <tr id="column_names">
                   <th>Volunteer Id:</th>
                   <th>Name:</th>
                   <th>Username:</th>
                   <th>Email:</th>
                   <th>Phone:</th>
-                  <th>Actions:</th>
+                  <th id="actions">Approve:</th>
+                  <th>Deny:</th>
               </tr>
           </thead>
           <tbody>
@@ -21,8 +22,8 @@
                   <td v-if="volunteer.applicationStatusId == 1">{{volunteer.email}}</td>
                   <td v-if="volunteer.applicationStatusId == 1">{{volunteer.phone}}</td>
                   <!--This is not working right.-->
-                  <td v-if="volunteer.applicationStatusId == 1"><a href="#" v-on:click="approve(volunteer)"> Approve </a></td>
-                  <td v-if="volunteer.applicationStatusId == 1"><a href="#" v-on:click="deny(volunteer)">Deny</a></td>
+                  <td v-if="volunteer.applicationStatusId == 1"><button type="button" id="approve" v-on:click="approve(volunteer)"> Approve </button></td>
+                  <td v-if="volunteer.applicationStatusId == 1"><button type="button" id="deny" v-on:click="deny(volunteer)">Deny</button></td>
                   
                   
                 

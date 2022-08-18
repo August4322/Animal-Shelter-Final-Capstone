@@ -14,6 +14,8 @@ public interface PetDao {
 
     boolean updatePet(int id, Pet pet);
 
+    void deletePet(int id);
+
 
 
 

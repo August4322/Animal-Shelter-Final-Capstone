@@ -71,6 +71,13 @@ public class JdbcPetDao implements PetDao {
                             pet.getImage(), pet.isAvailable(), pet.isFixed(), pet.getTagline(), id) == 1;
     }
 
+    @Override
+    public void deletePet(int id) {
+        String sql = "DELETE FROM pets " +
+                "WHERE id= ?;";
+        jdbcTemplate.update(sql, id);
+    }
+
 
     private Pet mapRowToPet(SqlRowSet rs) {
         Pet pet = new Pet();
